@@ -1,13 +1,18 @@
 import { Benefits } from "@/components/Benefits";
+import { Delivery } from "@/components/Delivery";
 import { MainHero } from "@/components/MainHero";
+import { Presentation } from "@/components/Presentation";
 import { Services } from "@/components/Services";
 import Image from "next/image";
+
 
 export default function Page() {
   return (
     <div className="w-full md:max-w-6xl mx-auto md:w-11/12">
       <MainHero />
 
+      <Presentation />
+      
       <h2 className="text-xl md:text-3xl font-bold text-center my-10 md:my-16">
         Haz Crecer tu Negocio
       </h2>
@@ -51,6 +56,8 @@ export default function Page() {
       <Services />
 
       <Benefits />
+
+      <Delivery />
     </div>
   );
 }
