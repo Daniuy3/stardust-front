@@ -50,8 +50,8 @@ export default function Page() {
           {stages.map((stage, index) => (
             <div key={index} className="p-4 border-t-olive-300 border-t-2">
               <div className="md:w-11/12 mx-auto">
-                <h3 className="text-xl font-semibold mb-2 text-indigo-900">{stage.title}</h3>
-                <p className="text-sm">{stage.description}</p>
+                <h3 className="text-xl font-semibold mb-2 text-indigo-900 text-center md:text-left">{stage.title}</h3>
+                <p className="text-sm text-center md:text-left">{stage.description}</p>
               </div>
             </div>
           ))}
@@ -59,9 +59,6 @@ export default function Page() {
       </div>
 
       <Benefits />
-      
-      <Services />
-
 
       <Delivery />
     </div>

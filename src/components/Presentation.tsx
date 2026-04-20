@@ -33,27 +33,27 @@ export const Presentation = () => {
         }
     ]
   return (
-    <div className="py-10 flex gap-10 items-center">
+    <div className="py-10 flex flex-col md:flex-row p-2 gap-10 items-center">
         <div className="md:w-1/2 space-y-5">
-            <h2 className="text-3xl font-bold">
+            <h2 className="text-3xl font-bold text-center md:text-left">
             Soluciones digitales que
-            <span className="text-indigo-900 block">
+            <span className="text-purple-900 block">
                 {" "}
                 Realmente impulsan tu negocio
             </span>
             </h2>
-            <p className="text-lg ">
+            <p className="text-lg text-center md:text-left">
             Creamos productos funcionales, escalables y enfocados en resultados, combinando tecnología, diseño y estrategia. Nuestro objetivo no es solo que tu proyecto se vea bien, sino que funcione, crezca y aporte valor desde el primer día.
             </p>
         </div>
 
         <div className="grid grid-cols-2 gap-5 mt-10">
             {items.map((item, index) => (
-                <div key={index} className="flex flex-col gap-3 ">
-                    <div className="text-4xl">{item.icon}</div>
+                <div key={index} className="flex flex-col items-center justify-center gap-3 ">
+                    <div className="text-4xl text-center">{item.icon}</div>
                     <div>
-                        <h3 className="text-xl font-bold">{item.title}</h3>
-                        <p>{item.content}</p>
+                        <h3 className="text-xl font-bold text-center">{item.title}</h3>
+                        <p className="text-center">{item.content}</p>
                     </div>
                 </div>
             ))}
