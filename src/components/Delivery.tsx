@@ -31,7 +31,7 @@ export const Delivery = () => {
             Lo que te entregamos
           </h2>
 
-          <div className="flex justify-center gap-3 text-secondary-950 md:px-10 ">
+          <div className="flex flex-col md:flex-row justify-center gap-3 text-secondary-950 md:px-10 ">
             {items.map((item, index) => (
               <div key={index} className="flex flex-col items-center text-center md:w-72">
                 <FaCheckCircle className="text-2xl mb-3" />
