@@ -3,59 +3,65 @@ import { Delivery } from "@/components/Delivery";
 import { MainHero } from "@/components/MainHero";
 import { Presentation } from "@/components/Presentation";
 import { Services } from "@/components/Services";
-import Image from "next/image";
-
+import { StackedBarChart } from "@/components/StackedBarChart";
 
 export default function Page() {
+
+  const stages = [ 
+    {
+      title: "Investigación y Estrategia",
+      description: "Analizamos tu mercado, competencia y el comportamiento de los usuarios para definir una dirección clara."
+    },
+    {
+      title: "Arquitectura y Estructura",
+      description: "Organizamos la información y definimos cómo navegarán los usuarios dentro de tu sitio."
+    },
+    {
+      title: "Diseño UI/UX",
+      description: "Diseñamos una interfaz atractiva, moderna y enfocada en la experiencia del usuario para garantizar una navegación fluida y eficaz."
+    },
+    {
+      title: "Desarrollo y Construcción",
+      description: "Llevamos el diseño a código, construyendo un sitio funcional, rapido y escalable utilizando las últimas tecnologías web."
+    },
+    {
+      title: "Optimización y Lanzamiento",
+      description: "Probamos, ajustamos y optimizamos cada detalle antes de publicar."
+    },
+    {
+      title: "Mantenimiento y Evolución",
+      description: "Después del lanzamiento, seguimos mejorando. Actualizamos, optimizamos y damos soporte para que tu sitio evolucione con tu negocio."
+    }
+
+  ]
   return (
     <div className="w-full md:max-w-6xl mx-auto md:w-11/12">
       <MainHero />
 
       <Presentation />
-      
-      <h2 className="text-xl md:text-3xl font-bold text-center my-10 md:my-16">
-        Haz Crecer tu Negocio
-      </h2>
 
-      <div className="flex flex-col md:flex-row md:gap-5 my-5">
-        <div className="md:w-3/5 relative h-60 md:h-80">
-          <Image 
-            src="/services/service-1.jpeg"
-            fill
-            className="object-cover"
-            alt="Imagen de fondo"
-          />
-        </div>
-        
-        <div className="md:w-2/5 flex flex-col justify-center md:justify-end gap-5 px-5 pb-5 bg-secondary-300 min-h-60">
-          <h3 className="text-2xl font-bold"> Más clientes, no solo vistas</h3>
-          <p>
-              Tu web debe trabajar por ti. Diseñamos sitios pensados para convertir tráfico en oportunidades reales.
-          </p>
-        </div>
+      <StackedBarChart />
 
-      </div>
-
-      <div className="flex flex-col-reverse md:flex-row md:gap-5 my-5">
-        <div className="md:w-2/5 flex flex-col justify-center md:justify-end gap-5 px-5 pb-5 bg-secondary-300 min-h-60">
-          <h3 className="text-2xl font-bold"> Tus objetivos también son nuestros</h3>
-          <p>
-              Nos enfocamos en crear un servicio orientado a alcanzar tus objetivos.
-          </p>
-        </div>
-        <div className="md:w-3/5 relative h-60 md:h-80">
-          <Image 
-            src="/services/service-2.jpeg"
-            fill
-            className="object-cover"
-            alt="Imagen de fondo"
-          />
+      <div>
+        <h2 className="text-3xl text-center font-bold pb-5">
+          Tu sitio web, paso a paso
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {stages.map((stage, index) => (
+            <div key={index} className="p-4 border-t-olive-300 border-t-2">
+              <div className="md:w-11/12 mx-auto">
+                <h3 className="text-xl font-semibold mb-2 text-indigo-900">{stage.title}</h3>
+                <p className="text-sm">{stage.description}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-
-      <Services />
 
       <Benefits />
+      
+      <Services />
+
 
       <Delivery />
     </div>
