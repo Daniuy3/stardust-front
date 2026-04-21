@@ -1,8 +1,8 @@
 import { Benefits } from "@/components/Benefits";
+import { Courses } from "@/components/Courses";
 import { Delivery } from "@/components/Delivery";
 import { MainHero } from "@/components/MainHero";
 import { Presentation } from "@/components/Presentation";
-import { Services } from "@/components/Services";
 import { StackedBarChart } from "@/components/StackedBarChart";
 
 export default function Page() {
@@ -61,6 +61,8 @@ export default function Page() {
       <Benefits />
 
       <Delivery />
+
+      <Courses />
     </div>
   );
 }
