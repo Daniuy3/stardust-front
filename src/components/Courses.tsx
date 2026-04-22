@@ -4,9 +4,9 @@ import React from 'react'
 
 export const Courses = () => {
   return (
-    <div>
-        <div className='flex justify-between'>
-            <div>
+    <div className='mb-20'>
+        <div className='flex flex-col md:flex-row justify-between px-5'>
+            <div className='text-center md:text-left'>
                 <h2 className='text-3xl font-bold'>
                     Cursos Disponibles
                 </h2>
@@ -20,7 +20,7 @@ export const Courses = () => {
                 </button>
             </div>
         </div>
-        <div className='flex gap-5 w-full overflow-x-auto py-10'>
+        <div className='flex gap-5 w-full overflow-x-auto py-5 md:py-10 px-2'>
             {
                 courses.map((course) => (
                     <div key={course.id} className='border border-gray-300 relative rounded-xl overflow-hidden min-w-86  md:min-w-sm'>
