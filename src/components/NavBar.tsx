@@ -14,6 +14,7 @@ export const NavBar = () => {
   const pages = [
     { name: "Inicio", href: "/#inicio" },
     { name: "Servicios", href: "/#servicios" },
+    { name: "Cursos", href: "/cursos" },
     { name: "Proyectos", href: "/#proyectos", disabled: true },
   ]
 
@@ -127,9 +128,9 @@ export const NavBar = () => {
                 </p>
               </MenuItem>
               <MenuItem onClick={handleClose} sx={{px:7, textAlign: "center"}}>
-                <p className="text-center w-full">
+                <Link href="/cursos" className="text-center w-full">
                   Cursos
-                </p>
+                </Link>
               </MenuItem>
               <Divider />
               <MenuItem onClick={handleClose} sx={{px:7, textAlign: "center"}}>
