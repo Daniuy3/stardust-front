@@ -4,6 +4,7 @@ import { Delivery } from "@/components/Delivery";
 import { MainHero } from "@/components/MainHero";
 import { Presentation } from "@/components/Presentation";
 import { StackedBarChart } from "@/components/StackedBarChart";
+import { CoursesIntroduction } from "../components/CoursesIntroduction";
 
 export default function Page() {
 
@@ -61,7 +62,7 @@ export default function Page() {
       <Benefits />
 
       <Delivery />
-
+      <CoursesIntroduction />
       <Courses />
     </div>
   );

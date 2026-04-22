@@ -29,7 +29,7 @@ export const StackedBarChart = () => {
             </button>
         </div>
 
-        <div className='mx-auto md:w-10/12 lg:w-1/2'>
+        <div className='mx-auto w-full md:w-10/12 lg:w-1/2'>
             <BarChart
                 style={{ width: '100%', maxWidth: '600px', maxHeight: '60vh', aspectRatio: 1.618 }}
                 responsive
