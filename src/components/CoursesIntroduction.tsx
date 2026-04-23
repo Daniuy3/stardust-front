@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 export const CoursesIntroduction = () => {
@@ -49,7 +50,9 @@ export const CoursesIntroduction = () => {
             </ul>
 
             <button className="mx-auto md:mx-0 block mt-10 text-purple-800 cursor-pointer hover:text-purple-900 transition font-bold underline underline-offset-3">
-                Ver Todos los Cursos
+                <Link href="/cursos">
+                    Ver Todos los Cursos
+                </Link>
             </button>
         </div>
         <div className='h-125 w-auto aspect-9/16 relative'>
