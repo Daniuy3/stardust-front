@@ -1,5 +1,6 @@
 import { courses } from '@/data/courses-example'
 import { CourseCard } from './CourseCard'
+import Link from 'next/link'
 
 export const Courses = () => {
   return (
@@ -15,7 +16,9 @@ export const Courses = () => {
             </div>
             <div className='flex-col justify-end flex'>
                 <button className="px-6 py-3  text-purple-800 cursor-pointer hover:text-purple-900 transition font-bold">
-                    Ver Todos los Cursos
+                    <Link href="/cursos">
+                        Ver Todos los Cursos
+                    </Link>
                 </button>
             </div>
         </div>

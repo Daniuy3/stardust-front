@@ -13,7 +13,7 @@ export const NavBar = () => {
 
   const pages = [
     { name: "Inicio", href: "/#inicio" },
-    { name: "Servicios", href: "/#servicios" },
+    { name: "Servicios", href: "/servicios" },
     { name: "Cursos", href: "/cursos" },
     { name: "Proyectos", href: "/#proyectos", disabled: true },
   ]
@@ -118,9 +118,9 @@ export const NavBar = () => {
               </MenuItem>
               
               <MenuItem onClick={handleClose} sx={{px:7, textAlign: "center"}}>
-                <p className="text-center w-full">
+                <Link href="/servicios" className="text-center w-full">
                   Servicios
-                </p>
+                </Link>
               </MenuItem>
               <MenuItem onClick={handleClose} sx={{px:7, textAlign: "center"}}>
                 <p className="text-center w-full">
