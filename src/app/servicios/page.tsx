@@ -1,8 +1,8 @@
+import { Button, ContainedButton, OutlinedButton } from "@/components/Button";
 import { Delivery } from "@/components/Delivery";
 import { PageContainer } from "@/components/PageContainer";
 import { StackedBarChart } from "@/components/StackedBarChart";
 import { Stages } from "@/components/Stages";
-import { Button } from "@mui/material";
 import Image from "next/image";
 import { AiFillThunderbolt } from "react-icons/ai";
 import { BsGraphUpArrow, BsLockFill } from "react-icons/bs";
@@ -60,16 +60,14 @@ export default function Page() {
                     </p>
 
                     <div className="flex gap-5 justify-center lg:justify-start">
-                        <Button variant="contained" sx={{fontWeight: 600, bgcolor: "#9810fa", borderRadius: "10px", fontSize: "12px", padding: "10px 20px", textTransform: "none"    }}>
+                        <ContainedButton >
                             Quiero un proyecto
-                        </Button>
-                        <Button 
+                        </ContainedButton>
+                        <OutlinedButton 
                             startIcon={<FaCalendarAlt />}
-                            variant="outlined" 
-                            sx={{fontWeight: 600, borderColor: "#9810fa", color: "#9810fa", borderRadius: "10px", fontSize: "12px", padding: "10px 20px", textTransform: "none"    }}
                         >
                             Agendar llamada
-                        </Button>
+                        </OutlinedButton>
                     </div>
                     <div className="flex flex-col items-center md:flex-row md:items-start gap-5">
                         {
