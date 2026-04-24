@@ -16,6 +16,8 @@ export const NavBar = () => {
     { name: "Servicios", href: "/servicios" },
     { name: "Cursos", href: "/cursos" },
     { name: "Proyectos", href: "/#proyectos", disabled: true },
+    { name: "Contacto", href: "/#contacto", main: true },
+    { name: "Iniciar sesión", href: "/login" },
   ]
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -39,26 +41,34 @@ export const NavBar = () => {
         <div className="gap-5 items-center hidden md:flex">
           {
             pages.map((page) => (
-              <button
-                key={page.name}
-                disabled={page.disabled}
-              >
-                <Link 
-                  href={page.href}
-                  className="text-gray-700 hover:text-gray-900"
-                >
-                  {page.name}
-                </Link>
-              </button>
+              
+                page.main ? (
+                  <button
+                    key={page.name}
+                    disabled={page.disabled}
+                  >
+                    <Link 
+                      href="/#contact"
+                      className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition-colors duration-300"
+                    >
+                      {page.name}
+                    </Link>
+                  </button>)
+                : (
+                  <button
+                    key={page.name}
+                    disabled={page.disabled}
+                    className="text-gray-700 hover:text-gray-900"
+                  >
+                    <Link 
+                      href={page.href}
+                    >
+                      {page.name}
+                    </Link>
+                  </button>
+                )
             ))
           }
-
-          <Link 
-            href="/#contact"
-            className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition-colors duration-300"
-          >
-            Contacto
-          </Link>
         </div>
 
         <div className="md:hidden flex items-center">
@@ -137,6 +147,12 @@ export const NavBar = () => {
                 <p className="text-center w-full">
                   Contacto
                 </p>
+              </MenuItem>
+
+              <MenuItem onClick={handleClose} sx={{px:7, textAlign: "center"}}>
+                <Link href="/login" className="text-center w-full">
+                    Iniciar sesión
+                </Link>
               </MenuItem>
             </Menu>
         </div>

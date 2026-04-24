@@ -1,4 +1,6 @@
 import Image from "next/image"
+import { OutlinedButton } from "./Button"
+import Link from "next/link"
 
 export const MainHero = () => {
   return (
@@ -18,9 +20,11 @@ export const MainHero = () => {
               <button className="px-6 py-3 bg-purple-600 cursor-pointer text-white rounded-md font-semibold hover:bg-purple-700 transition">
                 Quiero un Proyecto
               </button>
-              <button className="px-6 py-3 bg-gray-200 text-gray-800 cursor-pointer rounded-md font-semibold hover:bg-gray-300 transition">
-                Nuestros Cursos 
-              </button>
+              <Link href="/cursos" >
+                <OutlinedButton>
+                  Nuestros Cursos
+                </OutlinedButton>
+              </Link> 
             </div>
         </div>
         <div className="relative w-full h-64 md:h-96 md:w-2xl">
