@@ -6,7 +6,7 @@ import { FaCode, FaGithub, FaGoogle } from "react-icons/fa";
 
 export default function Page() {
     return (
-        <div className="flex items-center justify-center h-[90vh] w-full max-w-120 lg:max-w-6xl mx-auto py-10 md:rounded-xl">
+        <div className="flex items-center justify-center h-[85vh] w-full lg:bg-[#F1EDFC] max-w-120 lg:max-w-6xl mx-auto my-5 py-10 md:rounded-xl">
             <div className="relative w-full h-full md:rounded-xl overflow-hidden">
                 <Image 
                     src="/login/login-bg.png"
@@ -34,15 +34,15 @@ export default function Page() {
                     </div>
                 </div>
 
-                <div className="lg:absolute lg:top-5 lg:bottom-5 lg:left-3/5 lg:right-5 bg-white p-5 py-10 md:p-10 md:rounded-xl shadow-lg">
-                    <div >
-                        <h2 className="text-2xl font-bold text-center">
-                            ¡Bienvenido de nuevo! 
-                        </h2>
-                        <p className="text-sm text-center text-gray-500">
-                            Inicia sesión para continuar con tu viaje
-                        </p>
-
+                <div className="lg:flex flex-col justify-center lg:absolute lg:top-5 lg:bottom-5 lg:left-3/5 lg:right-5 bg-white p-5 py-10 md:p-10 md:rounded-xl shadow-lg">
+                        <div >
+                            <h2 className="text-2xl font-bold text-center">
+                                ¡Bienvenido de nuevo! 
+                            </h2>
+                            <p className="text-sm text-center text-gray-500">
+                                Inicia sesión para continuar con tu viaje
+                            </p>
+                        </div>
                         <div className="flex flex-col gap-4 mt-6">
                             <button className="w-full flex items-center justify-center gap-2 py-2 px-4 border border-gray-300 rounded-lg hover:bg-gray-50 transition">
                                 <FaGoogle />
@@ -117,7 +117,7 @@ export default function Page() {
                                     </TextButton>
                             </div>
                         </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>    

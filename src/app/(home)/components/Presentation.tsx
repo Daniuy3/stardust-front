@@ -1,8 +1,11 @@
+"use client"
+
 import React from 'react'
 import { AiFillTrophy } from 'react-icons/ai'
 import { BsAwardFill } from 'react-icons/bs'
 import { FaExchangeAlt } from 'react-icons/fa'
 import { IoPhonePortraitOutline } from 'react-icons/io5'
+import { motion } from 'motion/react'
 
 export const Presentation = () => {
 
@@ -49,13 +52,18 @@ export const Presentation = () => {
 
         <div className="grid grid-cols-2 gap-5 mt-10">
             {items.map((item, index) => (
-                <div key={index} className="flex flex-col items-center justify-center gap-3 ">
+                <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.2, ease: "backOut" }}
+                    key={index} className="flex flex-col items-center justify-center gap-3 "
+                >
                     <div className="text-4xl text-center">{item.icon}</div>
                     <div>
                         <h3 className="text-xl font-bold text-center">{item.title}</h3>
                         <p className="text-center">{item.content}</p>
                     </div>
-                </div>
+                </motion.div>
             ))}
         </div>
     </div>
