@@ -1,17 +1,25 @@
+"use client"
+
 import Image from "next/image"
-import { OutlinedButton } from "./Button"
 import Link from "next/link"
+import { motion } from "motion/react"
+import { OutlinedButton } from "@/components/Button"
 
 export const MainHero = () => {
   return (
     <div className="w-full flex py-15 flex-col lg:flex-row items-center justify-center gap-5 p-2">
         <div className="lg:w-1/3">
-            <h1 className="text-4xl font-bold text-center lg:text-left">
+            <motion.h1 
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2, ease: "backOut" }}
+                className="text-4xl font-bold text-center lg:text-left"
+            >
               Stardust 
               <span className="text-purple-700 font-semibold block">
                 Desarrollo de Software y Academia
               </span>
-            </h1>
+            </motion.h1>
             <p className="mt-4 text-gray-700 text-lg text-center lg:text-left">
               Somos una empresa dedicada al desarrollo de software de alta calidad, con experiencia en diversas tecnologías y soluciones innovadoras. Además, fungimos como academia, formando a nuevos desarrolladores en diferentes ramas del desarrollo, desde frontend y backend hasta DevOps.
             </p>

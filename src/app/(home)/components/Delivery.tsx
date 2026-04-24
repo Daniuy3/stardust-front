@@ -1,5 +1,8 @@
+"use client"
+
 import React from 'react'
 import { FaCheckCircle } from "react-icons/fa";
+import { motion } from "motion/react";
 
 export const Delivery = () => {
 
@@ -33,13 +36,19 @@ export const Delivery = () => {
 
           <div className="flex flex-col md:flex-row justify-center gap-3 text-secondary-950 md:px-10 ">
             {items.map((item, index) => (
-              <div key={index} className="flex flex-col items-center text-center md:w-72">
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                className="flex flex-col items-center text-center md:w-72"
+              >
                 <FaCheckCircle className="text-2xl mb-3" />
                 <div>
                     <h3 className="text-sm font-semibold">{item.title}</h3>
                     <p>{item.content}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
       </div>

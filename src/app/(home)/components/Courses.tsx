@@ -1,5 +1,5 @@
+import { CourseCard } from '@/components/CourseCard'
 import { courses } from '@/data/courses-example'
-import { CourseCard } from './CourseCard'
 import Link from 'next/link'
 
 export const Courses = () => {
