@@ -8,6 +8,7 @@ export interface LoginFormValues {
 
 export interface LoginResponse {
     message: string;
+    success: boolean;
     data: {
         token: string;
         expires_in: number;

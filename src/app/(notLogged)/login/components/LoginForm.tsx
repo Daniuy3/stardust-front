@@ -12,7 +12,7 @@ export const LoginForm = () => {
 
   return (
     <div 
-        className="lg:flex flex-col justify-center lg:absolute lg:top-5 lg:bottom-5 lg:left-3/5 lg:right-5 bg-white p-5 py-12 md:p-10 md:rounded-xl shadow-lg"
+        className="lg:flex flex-col justify-center lg:absolute lg:top-2 lg:bottom-2 lg:left-3/5 lg:right-5 bg-white p-5 py-12 md:p-10 md:rounded-xl shadow-lg"
     >
                 <div >
                     <h2 className="text-2xl font-bold text-center">
