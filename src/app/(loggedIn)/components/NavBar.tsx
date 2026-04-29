@@ -2,10 +2,21 @@ import Image from 'next/image'
 import { ProfileItem } from './ProfileItem'
 import NestedList from '@/components/NestedList'
 import { AiFillAlert } from 'react-icons/ai'
+import { RiGroupLine } from 'react-icons/ri'
 
 export const NavBar = () => {
 
     const navLinks = [
+        {
+            section: "Administración",
+            links: [
+                {
+                    name: "Usuarios",
+                    href: "/administracion/usuarios",
+                    icon: <RiGroupLine size={16}/>
+                },
+            ]
+        },
         {
             section: "General",
             links: [
@@ -81,7 +92,7 @@ export const NavBar = () => {
 
                     <NestedList
                         items={section.links.map((link) => ({
-                            Icon: <AiFillAlert />,
+                            Icon: link.icon || <AiFillAlert />,
                             text: link.name,
                             link: link.href
                         }))}

@@ -5,11 +5,27 @@ import { PasswordInput } from '@/components/PasswordInput'
 import { TextField, Checkbox } from '@mui/material'
 import { FaGithub, FaGoogle } from 'react-icons/fa'
 import { useLogin } from '../hooks/useAuth';
+import { useSnackBarStore } from '@/hooks/useSnackbar';
+import { useEffect } from 'react';
 
-export const LoginForm = () => {
+interface Props {
+    redirectReason: "no_token" | "invalid_token" | undefined | null;
+}
+
+export const LoginForm = ({ redirectReason }: Props) => {
 
     const { formik } = useLogin();
+    const { showSnackBar } = useSnackBarStore()
 
+    useEffect(() => {
+        console.log("Redirect reason:", redirectReason);
+        if (redirectReason === "no_token") {
+            showSnackBar("Por favor inicia sesión para continuar", "warning");
+        } else if (redirectReason === "invalid_token") {
+            showSnackBar("Tu sesión ha expirado, por favor inicia sesión nuevamente", "warning");
+        }
+    },[redirectReason, showSnackBar])
+    
   return (
     <div 
         className="lg:flex flex-col justify-center lg:absolute lg:top-2 lg:bottom-2 lg:left-3/5 lg:right-5 bg-white p-5 py-12 md:p-10 md:rounded-xl shadow-lg"
