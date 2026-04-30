@@ -14,9 +14,6 @@
     --color-secondary-900: #4a4e5e;
     --color-secondary-950: #30313b; 
 }
-* {
-  box-sizing: border-box;
-}
 
 html {
     scroll-behavior: smooth;
