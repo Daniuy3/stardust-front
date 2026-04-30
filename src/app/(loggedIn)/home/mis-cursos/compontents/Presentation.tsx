@@ -20,7 +20,7 @@ export const Presentation = ({ name = '[Nombre del usuario]' }: PresentationProp
   return (
     < >
         <div className='justify-between hidden lg:flex'>
-            <h2 className='text-2xl font-semibold w-1/3 hidden lg:block'>¡Hola, {name}!</h2>
+            <h2 className='text-2xl font-semibold w-1/3 hidden xl:block'>¡Hola, {name}!</h2>
 
             <FormControl variant='outlined' fullWidth size='small' sx={{ maxWidth: "450px" }}>
                 <OutlinedInput

@@ -1,11 +1,12 @@
 "use client"
 
-import { styled, Table, TableBody, TableCell, tableCellClasses, TableContainer, TableFooter, TableHead, TablePagination, TableRow } from '@mui/material'
-import React from 'react'
+import { Skeleton, styled, Table, TableBody, TableCell, tableCellClasses, TableContainer, TableFooter, TableHead, TablePagination, TableRow } from '@mui/material'
+import React, { useEffect } from 'react'
 import { User } from '../interfaces';
 import { TextButton } from '@/components/Button';
 import { TbDots } from 'react-icons/tb';
 import { SlLocationPin } from 'react-icons/sl';
+import { useUsersStore } from '../store/UsersStore';
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -56,6 +57,13 @@ const EstatusWithCircle = ({ status }: { status: string }) => {
   );
 }
 export const TableHandler = ({ initialUsers }: Props) => {
+
+  const { users, loading, setUsers} = useUsersStore();
+
+  useEffect(() => {
+    setUsers(initialUsers);
+  }, [initialUsers, setUsers])
+
   return (
     <div className='flex min-h-0 flex-1 flex-col'>
 
@@ -74,7 +82,56 @@ export const TableHandler = ({ initialUsers }: Props) => {
                   </TableRow>
               </TableHead>
               <TableBody>
-                  {initialUsers.map((user) => (
+                {
+                     loading && (
+                      [1,2,3,4,5].map((i) => (
+                        <StyledTableRow key={i + "skeleton"}>
+                          <TableCell align="center">
+                            <div className='flex gap-2'>
+                              <Skeleton variant="circular" width={35} height={35} />
+                              <div>
+                                <Skeleton variant="text" width={100} height={20} />
+                                <Skeleton variant="text" width={150} height={15} />
+                              </div>
+                            </div>
+                          </TableCell>
+                          <TableCell>
+                            <Skeleton variant="text" width={80} height={30} />
+                          </TableCell>
+                          <TableCell>
+                            <Skeleton variant="text" width={60} height={30} />
+                          </TableCell>
+                          <TableCell>
+                            <Skeleton variant="text" width={80} height={20} />
+                          </TableCell>
+                          <TableCell>
+                            <div className='flex gap-2 items-center'>
+                              <SlLocationPin size={16} className='text-gray-500'/>
+                              <Skeleton  variant="text" width={70} height={20} />
+                            </div>
+                          </TableCell>
+                          <StyledTableCell>
+                            <Skeleton variant="text" width={80} height={20} />
+                          </StyledTableCell>
+                          <StyledTableCell>
+                            <TextButton>
+                                  <TbDots size={18} />
+                              </TextButton>
+                          </StyledTableCell>
+                        </StyledTableRow>
+                    )))
+                }
+                {
+                    users.length === 0 && !loading && (
+                      <TableRow>
+                        <TableCell colSpan={8} align="center" sx={{height:400}}>
+                          No hay usuarios para mostrar.
+                        </TableCell>
+                      </TableRow>
+                    )
+                }
+                  {
+                    users.length > 0 && !loading && users.map((user) => (
                       <StyledTableRow key={user.id}>
                           <StyledTableCell>
                             <div className='flex gap-3 items-center'>
@@ -121,15 +178,13 @@ export const TableHandler = ({ initialUsers }: Props) => {
               labelRowsPerPage="Filas por página"
               rowsPerPageOptions={[5, 10, 25]}
               component="div"
-              count={initialUsers.length}
+              count={users.length}
               slotProps={{
                 select: {
                   label: 'Filas por página',
                   inputProps: {
                     'aria-label': 'Filas por página',
-                    
-                  },
-                  native: true,
+                  }
                 },
               }}
               rowsPerPage={5}
