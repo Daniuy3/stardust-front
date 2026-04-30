@@ -3,6 +3,8 @@ import Image from "next/image";
 import { FaCode } from "react-icons/fa";
 import { LoginForm } from "./components/LoginForm";
 import { Metadata } from "next";
+import { cookies } from "next/headers";
+
 export const metadata : Metadata = {
   title: "Iniciar Sesión | Stardust",
   description: "Inicia sesión en tu cuenta de Stardust para acceder a nuestros cursos y recursos de programación.",
@@ -36,9 +38,18 @@ export const metadata : Metadata = {
   metadataBase: new URL("https://stardustui.com/")
 }
 
-export default function Page() {
+type RedirectReason = "no_token" | "invalid_token" | undefined | null;
+
+export default async function Page({
+    searchParams
+} :{
+    searchParams: Promise<{ redirect_reason: RedirectReason }>
+}) {
+
+    const { redirect_reason } = await searchParams;
+    console.log("Received redirect reason in page component:", redirect_reason);
     return (
-        <div className="flex items-center justify-center h-[85vh] w-full lg:bg-[#F1EDFC] max-w-120 lg:max-w-6xl mx-auto my-5 py-10 md:rounded-xl">
+        <div className="flex items-center justify-center h-[87vh] w-full lg:bg-[#F1EDFC] max-w-120 lg:max-w-6xl mx-auto my-5 py-10 md:rounded-xl">
             <div className="relative w-full h-full md:rounded-xl overflow-hidden">
                 <Image 
                     src="/login/login-bg.png"
@@ -66,7 +77,7 @@ export default function Page() {
                     </div>
                 </div>
 
-                <LoginForm />
+                <LoginForm redirectReason={redirect_reason} />
             </div>
         </div>    
     );

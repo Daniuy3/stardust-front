@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { NavBar } from "@/components/NavBar";
-import { Footer } from "@/components/Footer";
 import { StoredSnackBar } from "@/components/SnackBar";
 
 export const metadata: Metadata = {
@@ -19,10 +17,9 @@ export default function RootLayout({
       <body
       >
         <StoredSnackBar />
-        <NavBar />
+        
         {children}
 
-        <Footer />
       </body>
     </html>
   );
