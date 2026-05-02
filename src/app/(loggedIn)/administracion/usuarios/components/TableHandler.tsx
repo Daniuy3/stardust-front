@@ -1,15 +1,17 @@
 "use client"
 
-import { Skeleton, styled, Table, TableBody, TableCell, tableCellClasses, TableContainer, TableFooter, TableHead, TablePagination, TableRow } from '@mui/material'
+import { styled, Table, TableBody, TableCell, tableCellClasses, TableContainer,  TableHead, TablePagination, TableRow } from '@mui/material'
 import React, { useEffect } from 'react'
 import { User } from '../interfaces';
 import { TextButton } from '@/components/Button';
 import { TbDots } from 'react-icons/tb';
 import { SlLocationPin } from 'react-icons/sl';
 import { useUsersStore } from '../store/UsersStore';
+import { TableLoader } from './TableLoader';
+import { useTablePagination } from '@/hooks/useTablePagination';
 
 
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
+const StyledTableCell = styled(TableCell)(() => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: "#e5e7eb",
     color: "#4a5565",
@@ -59,6 +61,7 @@ const EstatusWithCircle = ({ status }: { status: string }) => {
 export const TableHandler = ({ initialUsers }: Props) => {
 
   const { users, loading, setUsers} = useUsersStore();
+  const {slice, ...rest} = useTablePagination({})
 
   useEffect(() => {
     setUsers(initialUsers);
@@ -83,43 +86,9 @@ export const TableHandler = ({ initialUsers }: Props) => {
               </TableHead>
               <TableBody>
                 {
-                     loading && (
-                      [1,2,3,4,5].map((i) => (
-                        <StyledTableRow key={i + "skeleton"}>
-                          <TableCell align="center">
-                            <div className='flex gap-2'>
-                              <Skeleton variant="circular" width={35} height={35} />
-                              <div>
-                                <Skeleton variant="text" width={100} height={20} />
-                                <Skeleton variant="text" width={150} height={15} />
-                              </div>
-                            </div>
-                          </TableCell>
-                          <TableCell>
-                            <Skeleton variant="text" width={80} height={30} />
-                          </TableCell>
-                          <TableCell>
-                            <Skeleton variant="text" width={60} height={30} />
-                          </TableCell>
-                          <TableCell>
-                            <Skeleton variant="text" width={80} height={20} />
-                          </TableCell>
-                          <TableCell>
-                            <div className='flex gap-2 items-center'>
-                              <SlLocationPin size={16} className='text-gray-500'/>
-                              <Skeleton  variant="text" width={70} height={20} />
-                            </div>
-                          </TableCell>
-                          <StyledTableCell>
-                            <Skeleton variant="text" width={80} height={20} />
-                          </StyledTableCell>
-                          <StyledTableCell>
-                            <TextButton>
-                                  <TbDots size={18} />
-                              </TextButton>
-                          </StyledTableCell>
-                        </StyledTableRow>
-                    )))
+                     loading && [1,2,3,4,5].map((i) => (
+                      <TableLoader key={i + "skeleton"}/>
+                    ))
                 }
                 {
                     users.length === 0 && !loading && (
@@ -131,7 +100,7 @@ export const TableHandler = ({ initialUsers }: Props) => {
                     )
                 }
                   {
-                    users.length > 0 && !loading && users.map((user) => (
+                    users.length > 0 && !loading && users.slice(...slice).map((user) => (
                       <StyledTableRow key={user.id}>
                           <StyledTableCell>
                             <div className='flex gap-3 items-center'>
@@ -174,23 +143,8 @@ export const TableHandler = ({ initialUsers }: Props) => {
 
         <div className='shrink-0 border-t border-gray-300'>
             <TablePagination
-              labelDisplayedRows={(info) => (`${info.to} de ${info.count}`)}
-              labelRowsPerPage="Filas por página"
-              rowsPerPageOptions={[5, 10, 25]}
-              component="div"
               count={users.length}
-              slotProps={{
-                select: {
-                  label: 'Filas por página',
-                  inputProps: {
-                    'aria-label': 'Filas por página',
-                  }
-                },
-              }}
-              rowsPerPage={5}
-              page={0}
-              onPageChange={() => {}}
-              onRowsPerPageChange={() => {}}
+              {...rest}
           />
         </div>
     </div>

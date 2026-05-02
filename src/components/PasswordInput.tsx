@@ -7,7 +7,7 @@ import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
 
 
 interface Props extends InputProps {
-    errorMessage?: string;
+    errorMessage?: string | false;
     title?: string
 }
 export const PasswordInput = ({error, title, errorMessage,...rest} : Props) => {

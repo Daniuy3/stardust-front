@@ -1,3 +1,4 @@
+
 export interface GetUsersResponse {
     success: boolean;
     message: string;
@@ -23,6 +24,27 @@ export interface User {
     bio:          string;
     roles:        Role[];
     profile:      Profile;
+}
+
+export interface UserCreationData {
+    first_name: string;
+    last_name: string;
+    email: string;
+    password: string;
+    password_confirmation: string;
+    roles: string[]; // Array of role names (e.g., ["admin", "teacher", "student"])
+    // Optional profile fields
+    phone?: string;
+    bio?: string;
+    country?: string;
+    city?: string;
+    birth_date?: Date ;
+    headline?: string;
+    professional_title?: string;
+    specialization?: string;
+    years_experience?: number;
+    website_url?: string;
+    linkedin_url?: string;
 }
 
 export interface Profile {
