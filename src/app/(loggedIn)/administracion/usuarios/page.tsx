@@ -1,14 +1,14 @@
-import { ContainedButton, TextButton } from "@/components/Button";
+import { TextButton } from "@/components/Button";
 import { Select } from "@/components/Select";
-import { Button, InputAdornment, OutlinedInput, Table, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
+import { Button, InputAdornment, OutlinedInput } from "@mui/material";
 import { BiExport } from "react-icons/bi";
-import { FaPlus } from "react-icons/fa";
 import { LuSearch } from "react-icons/lu";
 import { RiGroupLine } from "react-icons/ri";
 import { TfiReload } from "react-icons/tfi";
 import { TableHandler } from "./components/TableHandler";
 import { getUsers } from "./api";
 import { UsersCount } from "./components/UsersCount";
+import { CreateUser } from "./components/CreateUser";
 
 export default async function Page() {
 
@@ -72,16 +72,7 @@ export default async function Page() {
                             Exportar
                         </Button>
 
-                        <ContainedButton
-                            sx={{
-                                ml: 2,
-                                borderRadius: "4px",
-                            }}
-                            startIcon={<FaPlus size={12}/>}
-                            variant="contained"
-                        >
-                            Agregar Usuario
-                        </ContainedButton>
+                        <CreateUser />
                     </div>
                 </div>
                 <div className="flex flex-col gap-3 border-b border-gray-300 px-5 py-2 lg:flex-row lg:items-center">

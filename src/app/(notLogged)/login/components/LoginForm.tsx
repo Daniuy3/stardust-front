@@ -18,7 +18,6 @@ export const LoginForm = ({ redirectReason }: Props) => {
     const { showSnackBar } = useSnackBarStore()
 
     useEffect(() => {
-        console.log("Redirect reason:", redirectReason);
         if (redirectReason === "no_token") {
             showSnackBar("Por favor inicia sesión para continuar", "warning");
         } else if (redirectReason === "invalid_token") {

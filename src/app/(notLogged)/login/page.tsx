@@ -3,7 +3,6 @@ import Image from "next/image";
 import { FaCode } from "react-icons/fa";
 import { LoginForm } from "./components/LoginForm";
 import { Metadata } from "next";
-import { cookies } from "next/headers";
 
 export const metadata : Metadata = {
   title: "Iniciar Sesión | Stardust",
@@ -47,7 +46,7 @@ export default async function Page({
 }) {
 
     const { redirect_reason } = await searchParams;
-    console.log("Received redirect reason in page component:", redirect_reason);
+    
     return (
         <div className="flex items-center justify-center h-[87vh] w-full lg:bg-[#F1EDFC] max-w-120 lg:max-w-6xl mx-auto my-5 py-10 md:rounded-xl">
             <div className="relative w-full h-full md:rounded-xl overflow-hidden">
