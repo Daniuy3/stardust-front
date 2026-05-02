@@ -58,3 +58,63 @@ export const createUser = async (userData: UserCreationData) => {
         }
     }
 }
+
+import { UserUpdateData } from "../interfaces";
+
+export const updateUser = async ({id, ...rest}: UserUpdateData) => {
+    try {
+        const payload = { ...rest };
+
+        const response = await fetchWithAuth((client) => client.put(`/users/${id}`, payload));
+
+        if(!response.success) {
+            return {
+                success: false,
+                message: response.message,
+                data: null
+            }
+        }
+
+        return {
+            success: true,
+            message: response.message,
+            data: response.data
+        }
+
+    } catch (error) {
+        console.error('Error updating user:', error);
+        const msg = error instanceof Error ? error.message : String(error)
+        return {
+            success: false,
+            message: msg || 'Error updating user',
+            data: null
+        }
+    }
+}
+
+export const getUserById = async (id: number) => {
+    try {
+        const response = await fetchWithAuth((client) => client.get(`/users/${id}`));
+
+        if(!response.success) {
+            return {
+                success: false,
+                message: response.message,
+                data: null
+            }
+        }
+
+        return {
+            success: true,
+            message: response.message,
+            data: response.data
+        }
+    } catch (error) {
+        console.error('Error fetching user by ID:', error);
+        return {
+            success: false,
+            message: 'Error fetching user',
+            data: null
+        }
+    }
+}
