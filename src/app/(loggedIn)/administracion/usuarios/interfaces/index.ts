@@ -102,3 +102,9 @@ export type UserFormValues = {
     website_url: string
     linkedin_url: string
 }
+
+export interface DetailedUserResponse {
+    success: boolean;
+    message: string;
+    data:    User;   
+}

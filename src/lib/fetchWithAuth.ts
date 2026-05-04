@@ -13,6 +13,7 @@ export async function fetchWithAuth<SuccessType , ErrorType = unknown>(requestFn
 
     if (!token) {
         permanentRedirect('/login?redirect_reason=no_token', RedirectType.replace);
+        throw new Error('No authentication token found');
     }
 
     const decrytedToken = await decrypt(token);
@@ -31,6 +32,7 @@ export async function fetchWithAuth<SuccessType , ErrorType = unknown>(requestFn
     } catch (error) {
 
         console.error(error);
+        
         
         if (axios.isAxiosError(error)) {
             const axiosError = error as AxiosError<ErrorType>;
