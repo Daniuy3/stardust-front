@@ -3,8 +3,9 @@ import { ProfileItem } from './ProfileItem'
 import NestedList from '@/components/NestedList'
 import { AiFillAlert } from 'react-icons/ai'
 import { RiGroupLine } from 'react-icons/ri'
+import { GoBook } from 'react-icons/go'
 
-export const NavBar = () => {
+export const NavBar = ({ display_name, id }: { display_name: string; id: number  }) => {
 
     const navLinks = [
         {
@@ -20,10 +21,6 @@ export const NavBar = () => {
         {
             section: "General",
             links: [
-                {
-                    name: "Inicio",
-                    href: "/home"
-                },
                 {
                     name: "Mis Cursos",
                     href: "/home/mis-cursos"
@@ -51,7 +48,8 @@ export const NavBar = () => {
             links: [
                 {
                     name: "Mis Cursos",
-                    href: "/home/mis-cursos"
+                    href: "/teaching/mis-cursos",
+                    icon: <GoBook size={16}/>
                 },
                 {
                     name: "Crear Curso",
@@ -100,7 +98,7 @@ export const NavBar = () => {
                 </div>
             ))}
         </div>
-        <ProfileItem />
+        <ProfileItem display_name={display_name} id={id} />
     </div>
   )
 }

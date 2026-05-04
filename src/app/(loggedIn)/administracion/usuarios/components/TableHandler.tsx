@@ -150,7 +150,13 @@ export const TableHandler = ({ initialUsers }: Props) => {
                               </div>
                             </RedirectTableCell>
                             <RedirectTableCell userId={user.id}>
-                              {user.bio}
+                              {new Date().toLocaleString("es-ES", {
+                                day: "2-digit",
+                                month: "short",
+                                year: "2-digit",
+                                hour: "2-digit",
+                                minute: "2-digit",
+                              })}
                             </RedirectTableCell>
                             <StyledTableCell>
                                 <UserActions 
