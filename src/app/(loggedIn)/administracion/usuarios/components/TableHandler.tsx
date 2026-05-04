@@ -13,6 +13,7 @@ import { useManageUser } from '../hooks/useManageUser';
 import { ReactivateModal } from './ReactivateModal';
 import Link from 'next/link';
 import { Theme } from '@mui/material/styles';
+import { RoleOutlined } from '@/components/RoleOutlined';
 
 
 const StyledTableCell = styled(TableCell)(() => ({
@@ -38,18 +39,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 interface Props {
     initialUsers: User[];
 }
-
-const RoleOutlined = ({ name }: { name: string }) => {
-  if (name.toLowerCase() === "alumno") {
-    return <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded-sm text-xs">Alumno</span>;
-  }
-
-  if (name.toLowerCase() === "profesor") {
-    return <span className="bg-green-100 text-green-800 px-2 py-1 rounded-sm text-xs">Profesor</span>;
-  }
-
-  return <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-sm text-xs">{name}</span>;
-};
 
 const EstatusWithCircle = ({ status }: { status: string }) => {
   const color = status.toLowerCase() === "active" ? "bg-green-500" : "bg-yellow-500";

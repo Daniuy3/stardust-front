@@ -1,7 +1,7 @@
 "use server"
 
 import { fetchWithAuth } from "@/lib/fetchWithAuth"
-import { GetUsersResponse, UserCreationData } from "../interfaces";
+import { DetailedUserResponse, GetUsersResponse, UserCreationData } from "../interfaces";
 
 export const getUsers = async () => {
     try {
@@ -60,6 +60,7 @@ export const createUser = async (userData: UserCreationData) => {
 }
 
 import { UserUpdateData } from "../interfaces";
+import { redirect } from "next/navigation";
 
 export const updateUser = async ({id, ...rest}: UserUpdateData) => {
     try {
@@ -92,9 +93,10 @@ export const updateUser = async ({id, ...rest}: UserUpdateData) => {
     }
 }
 
+
 export const getUserById = async (id: number) => {
     try {
-        const response = await fetchWithAuth((client) => client.get(`/users/${id}`));
+        const response = await fetchWithAuth<DetailedUserResponse>((client) => client.get(`/users/${id}`));
 
         if(!response.success) {
             return {

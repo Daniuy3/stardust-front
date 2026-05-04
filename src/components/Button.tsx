@@ -19,7 +19,7 @@ export const OutlinedButton = ({ children, sx, ...props }: Props) => {
                 fontWeight: 600,
                 borderColor: '#9810fa',
                 color: '#9810fa',
-                borderRadius: '10px',
+                borderRadius: '5px',
                 fontSize: '12px',
                 padding: '10px 20px',
                 textTransform: 'none',
