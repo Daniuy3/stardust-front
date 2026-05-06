@@ -1,14 +1,10 @@
 import { FaCopy, FaEdit, FaReact } from "react-icons/fa";
 import { getUserById } from "../api";
-import { OutlinedButton } from "@/components/Button";
-import { Select } from "@/components/Select";
 import { GoBook } from "react-icons/go";
 import { PiProjectorScreenChartLight } from "react-icons/pi";
 import { BsAward } from "react-icons/bs";
 import { LuClock5 } from "react-icons/lu";
-import { CiLock } from "react-icons/ci";
 import { TiDocument } from "react-icons/ti";
-import { FiActivity } from "react-icons/fi";
 import { HiOutlineDocumentCheck } from "react-icons/hi2";
 import { RoleOutlined } from "@/components/RoleOutlined";
 import { PersonalInfo } from "./components/PersonalInfo";
@@ -53,7 +49,7 @@ export default async function Page({
     }
 
     return (
-        <div className="flex max-h-screen h-full min-h-0 w-full flex-col gap-5 p-2 py-10 md:p-5 lg:p-10 ">
+        <div className="flex max-h-screen lg:justify-center h-full min-h-0 w-full flex-col gap-5 p-2 py-10 md:p-5 lg:p-10 ">
             <div className="border border-gray-300 rounded-xl p-5 flex flex-col gap-5 xl:flex-row">
                 <div className="flex gap-5 justify-center xl:justify-start">
                     <div 
@@ -74,7 +70,7 @@ export default async function Page({
                             </div>
                         </div>
 
-                        <div className="flex gap-23">
+                        <div className="flex gap-2">
                             {
                                 data.roles.map((role) => (
                                     <RoleOutlined key={role.id} name={role.name} />
