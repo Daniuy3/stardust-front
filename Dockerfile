@@ -7,6 +7,7 @@ WORKDIR /app
 RUN corepack enable
 
 COPY package.json pnpm-lock.yaml ./
+COPY pnpm-workspace.yaml ./
 RUN pnpm install
 
 COPY . .
@@ -22,6 +23,7 @@ COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/package.json ./
 COPY --from=builder /app/pnpm-lock.yaml ./
+COPY --from=builder /app/pnpm-workspace.yaml ./
 
 RUN pnpm install --prod
 CMD [ "pnpm", "run", "start" ]
