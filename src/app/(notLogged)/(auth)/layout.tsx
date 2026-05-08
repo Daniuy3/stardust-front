@@ -1,52 +1,7 @@
-
 import Image from "next/image";
 import { FaCode } from "react-icons/fa";
-import { LoginForm } from "./components/LoginForm";
-import { Metadata } from "next";
 
-export const metadata : Metadata = {
-  title: "Iniciar Sesión | Stardust",
-  description: "Inicia sesión en tu cuenta de Stardust para acceder a nuestros cursos y recursos de programación.",
-  keywords:[
-    "iniciar sesión",
-    "acceder a cuenta",
-    "cursos de programación",
-    "cursos de desarrollo web",
-    "aprender desarrollo web",
-    "curso de React",
-    "curso de Next.js",
-    "curso de JavaScript moderno",
-    "aprender programación desde cero",
-    "cursos prácticos de programación",
-    "cursos de desarrollo web con proyectos",
-    "cursos de programación en México",
-  ],
-  openGraph: {
-    title: "Iniciar Sesión | Stardust",
-    description: "Inicia sesión en tu cuenta de Stardust para acceder a nuestros cursos y recursos de programación.",
-    siteName: "Stardust",
-    url: "https://stardustui.com/login",
-    images: [
-      {
-        url: "/login/login-bg.png",
-        width: 1200,
-        height: 630,
-      },
-    ]
-  },
-  metadataBase: new URL("https://stardustui.com/")
-}
-
-type RedirectReason = "no_token" | "invalid_token" | undefined | null;
-
-export default async function Page({
-    searchParams
-} :{
-    searchParams: Promise<{ redirect_reason: RedirectReason }>
-}) {
-
-    const { redirect_reason } = await searchParams;
-    
+export default function Layout({children}: {children: React.ReactNode}) {
     return (
         <div className="flex items-center justify-center h-[87vh] w-full lg:bg-[#F1EDFC] max-w-120 lg:max-w-6xl mx-auto my-5 py-10 md:rounded-xl">
             <div className="relative w-full h-full md:rounded-xl overflow-hidden">
@@ -76,8 +31,8 @@ export default async function Page({
                     </div>
                 </div>
 
-                <LoginForm redirectReason={redirect_reason} />
+                {children}
             </div>
-        </div>    
+        </div>  
     );
 }

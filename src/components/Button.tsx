@@ -40,7 +40,7 @@ export const ContainedButton = ({ children, sx, ...props }: Props) => {
             sx={{
                 fontWeight: 600,
                 bgcolor: '#9810fa',
-                borderRadius: '10px',
+                borderRadius: '5px',
                 fontSize: '12px',
                 padding: '10px 20px',
                 textTransform: 'none',

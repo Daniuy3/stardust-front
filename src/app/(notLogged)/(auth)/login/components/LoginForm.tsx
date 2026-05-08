@@ -7,6 +7,7 @@ import { FaGithub, FaGoogle } from 'react-icons/fa'
 import { useLogin } from '../hooks/useAuth';
 import { useSnackBarStore } from '@/hooks/useSnackbar';
 import { useEffect } from 'react';
+import Link from 'next/link';
 
 interface Props {
     redirectReason: "no_token" | "invalid_token" | undefined | null;
@@ -115,13 +116,16 @@ export const LoginForm = ({ redirectReason }: Props) => {
 
                     <div className="flex justify-center">
                             <TextButton size="small" >
-                                <p className="text-gray-600">
+                                <Link 
+                                    href="/register"
+                                    className="text-gray-600"
+                                >
                                     ¿No tienes una cuenta?
                                     <span className="capitalize text-xs text-purple-700">
                                         {" "}
                                         Regístrate
                                     </span>
-                                </p>
+                                </Link>
                             </TextButton>
                     </div>
                 </div>
