@@ -35,8 +35,8 @@ jobs:
       env:
         NEW_VERSION: ${{ steps.version.outputs.version }}
       run: |
-        docker build -t daniuy/docker-graphql:$NEW_VERSION .
-        docker build -t daniuy/docker-graphql:latest .
+        docker build -t daniuy/stardust-front:$NEW_VERSION .
+        docker build -t daniuy/stardust-front:latest .
 
     - name: Push Docker Image
       env:
