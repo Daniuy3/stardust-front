@@ -10,7 +10,7 @@ interface Props {
     registration_date?: string | Date;
 }
 
-export const Access = ({ status, email, last_login, registration_date }: Props) => {
+export const Access = ({ status, email }: Props) => {
   return (
     <div className="border border-gray-300 rounded-xl p-5">
         <h2 className="text-sm font-semibold mb-3 flex items-center gap-2">

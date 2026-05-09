@@ -85,6 +85,10 @@ export const TableHandler = ({ initialUsers }: Props) => {
     setUsers(initialUsers);
   }, [initialUsers, setUsers])
 
+  useEffect(() => {
+    setPage(0);
+  },  [users, setPage]) 
+
   return (
     <>
       <div className='flex min-h-0 flex-1 flex-col'>

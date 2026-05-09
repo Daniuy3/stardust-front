@@ -7,22 +7,26 @@ import React from 'react'
 interface Props extends InputProps {
     label: string;
     icon ?: React.ReactNode;
+    variant?: 'standard' | 'outlined' | 'filled';
     errorMessage?: string  | false;
 }
 
-export const Input = ({ error, label, icon, errorMessage, ...rest }: Props) => {
+export const Input = ({ error, label, icon, variant = "standard", errorMessage, ...rest }: Props) => {
   return (
-    <FormControl fullWidth variant="standard" color='secondary'>
+    <FormControl fullWidth variant={variant} color='secondary'>
         <InputLabel error={error}>{label}</InputLabel>
         <MUIInput
+            sx={{
+                border: variant
+            }}
             error={error}
             fullWidth
-            {...rest}
             endAdornment={
-            <InputAdornment position="end">
-                {icon}
-            </InputAdornment>
+                <InputAdornment position="end">
+                    {icon}
+                </InputAdornment>
             }
+            {...rest}
         />
         {errorMessage && (
             <span className="text-red-500 text-sm">
