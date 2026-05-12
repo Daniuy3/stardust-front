@@ -3,7 +3,8 @@ name: Stardust Front Image
 on:
   push:
     branches: [ "master" ]
-
+permissions:
+  contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
