@@ -7,39 +7,46 @@ on:
     branches: [ "master" ]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-        
-    - name: Git Semantic Version
-      uses: PaulHatch/semantic-version@v4.0.3
-      with:
-        major_pattern: "major:"
-        minor_pattern: "feat:"
-      id: version
-        
-    - name: Docker Login
-      env:
-        DOCKER_USER: ${{ secrets.DOCKERHUB_USER }}
-        DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
-      run: |
-        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-    - name: Build Docker Image
-      env:
-        NEW_VERSION: ${{ steps.version.outputs.version }}
-      run: |
-        docker build -t daniuy/stardust-front:$NEW_VERSION .
-        docker build -t daniuy/stardust-front:latest .
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-    - name: Push Docker Image
-      env:
-        NEW_VERSION: ${{ steps.version.outputs.version }}
-      run: |
-        docker push daniuy/stardust-front:$NEW_VERSION
+      - name: Git Semantic Version
+        id: version
+        uses: PaulHatch/semantic-version@v4.0.3
+        with:
+          major_pattern: "major("
+          minor_pattern: "feat("
+
+      - name: Show calculated version
+        run: |
+          echo "version=${{ steps.version.outputs.version }}"
+          echo "major=${{ steps.version.outputs.major }}"
+          echo "minor=${{ steps.version.outputs.minor }}"
+          echo "patch=${{ steps.version.outputs.patch }}"
+
+      - name: Docker Login
+        env:
+          DOCKER_USER: ${{ secrets.DOCKERHUB_USER }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+        run: |
+          echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USER" --password-stdin
+
+      - name: Build Docker Image
+        env:
+          NEW_VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          docker build -t daniuy/stardust-front:$NEW_VERSION .
+          docker build -t daniuy/stardust-front:latest .
+
+      - name: Push Docker Image
+        env:
+          NEW_VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          docker push daniuy/stardust-front:$NEW_VERSION
+          docker push daniuy/stardust-front:latest
