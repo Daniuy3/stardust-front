@@ -27,7 +27,7 @@ export const NavBar = ({ display_name, id }: { display_name: string; id: number 
                 },
                 {
                     name: "Explorar Cursos",
-                    href: "/cursos"
+                    href: "/home/cursos"
                 },
                 {
                     name: "Calendario",
@@ -53,15 +53,15 @@ export const NavBar = ({ display_name, id }: { display_name: string; id: number 
                 },
                 {
                     name: "Crear Curso",
-                    href: "/cursos/crear"
+                    href: "/teaching/crear-curso"
                 },
                 {
                     name: "Administrar Cursos",
-                    href: "/cursos/administrar"
+                    href: "/teaching/administrar"
                 },
                 {
                     name: "Estadísticas",
-                    href: "/estadisticas"
+                    href: "/teaching/estadisticas"
                 }
             ]
         }

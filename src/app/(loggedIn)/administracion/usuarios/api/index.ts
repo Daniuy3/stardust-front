@@ -60,7 +60,6 @@ export const createUser = async (userData: UserCreationData) => {
 }
 
 import { UserUpdateData } from "../interfaces";
-import { redirect } from "next/navigation";
 
 export const updateUser = async ({id, ...rest}: UserUpdateData) => {
     try {

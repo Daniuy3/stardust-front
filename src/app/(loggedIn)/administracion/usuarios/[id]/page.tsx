@@ -1,4 +1,4 @@
-import { FaCopy, FaEdit, FaReact } from "react-icons/fa";
+import { FaCopy } from "react-icons/fa";
 import { getUserById } from "../api";
 import { GoBook } from "react-icons/go";
 import { PiProjectorScreenChartLight } from "react-icons/pi";

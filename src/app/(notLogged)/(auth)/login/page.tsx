@@ -1,6 +1,4 @@
 
-import Image from "next/image";
-import { FaCode } from "react-icons/fa";
 import { LoginForm } from "./components/LoginForm";
 import { Metadata } from "next";
 
