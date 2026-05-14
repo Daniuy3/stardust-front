@@ -32,7 +32,7 @@ export default async function Layout({children}: {children: React.ReactNode}) {
     
     return (
         <div
-            className="flex h-screen w-full overflow-hidden"
+            className="flex flex-col lg:flex-row h-screen w-full overflow-hidden"
         >
             <NavBar display_name={display_name} id={id} />
             <main className="min-w-0 flex-1 overflow-auto">

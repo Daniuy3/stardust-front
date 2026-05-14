@@ -57,7 +57,7 @@ export const CoursesIntroduction = () => {
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0}}
                     transition={{ duration: 0.5, delay: index * 0.2, ease: "backOut" }}
-
+                    viewport={{ once: true }}
                 >
                   {parts.map((part, partIndex) =>
                     part.type === 'bold' ? (
@@ -83,6 +83,7 @@ export const CoursesIntroduction = () => {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: "backOut" }}
+            viewport={{ once: true }}
         >
             <Image 
                 src="/courses/courses-introduction.png" 

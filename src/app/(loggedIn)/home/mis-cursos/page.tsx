@@ -6,7 +6,6 @@ import { ProgressChart } from "./compontents/ProgressChart";
 import { OutlinedButton } from "@/components/Button";
 import { ImStatsBars } from "react-icons/im";
 import { CalendarLayout } from "./compontents/CalendarLayout";
-import { FaArrowRight } from "react-icons/fa";
 
 export default async function Page() {
 
@@ -34,25 +33,11 @@ export default async function Page() {
 
             <div className="xl:grid flex-1 min-h-0 grid-cols-7 grid-rows-4 pt-5 gap-5">
                 
-                <div className="col-span-5 row-span-3 flex h-full xl:h-auto min-h-0 flex-col">
+                <div className="col-span-5 row-span-4 flex h-full xl:h-auto min-h-0 flex-col">
                     <h2 className="text-2xl font-semibold pl-2">Mis Cursos</h2>
                     <Tabs />
                 </div>
 
-                <div className="hidden xl:flex col-span-5 justify-between items-center rounded-xl border border-gray-200 bg-purple-50 p-5 py-10">
-                    <div>
-                        <p className="text-xl font-semibold text-gray-600">
-                        ¿Buscas algo nuevo para aprender? 
-                        </p>
-                        <p>
-                            Explora nuestro catálogo de cursos y encuentra tu próximo desafío.
-                        </p>
-                    </div>
-
-                    <OutlinedButton sx={{maxHeight: 50}} endIcon={<FaArrowRight  />}>
-                        Explorar Cursos
-                    </OutlinedButton>
-                </div>
 
                 <div className="col-start-6 col-span-2 row-start-1 row-span-3 min-h-0 flex-col rounded-xl border border-gray-300 p-3 justify-between hidden xl:flex">
                     <h3 className="text-sm font-semibold mb-2">Tu progreso</h3>

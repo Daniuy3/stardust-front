@@ -1,9 +1,9 @@
-import { OutlinedButton } from '@/components/Button'
+
 import { Course } from '@/data/courses-example'
-import { Button } from '@mui/material'
 import Image from 'next/image'
 import React from 'react'
-import { GoBookmarkFill } from 'react-icons/go'
+import { CiBookmark } from 'react-icons/ci'
+import { FaRegClock } from 'react-icons/fa'
 
 interface Props {
     course: Course
@@ -11,32 +11,33 @@ interface Props {
 
 export const CourseCard = ({ course } : Props) => {
   return (
-    <div className='flex flex-col sm:flex-row border border-gray-300 rounded-xl overflow-hidden'>
-        <div className='w-full sm:w-72 h-full min-h-64 bg-gray-200 relative'> 
-            <Image src={course.thumbnail_url} alt={course.title} fill className='h-full absolute  object-cover' />
+    <div  className="flex flex-col rounded-xl border border-gray-300 max-w-72 lg:max-w-56 lg:max-h-80">
+        <div className="relative aspect-video lg:max-w-56">
+            <Image 
+                src={course.thumbnail_url}
+                alt={course.title}
+                fill
+                className="object-cover rounded-t-sm"
+            />
         </div>
-        <div className='flex flex-col gap-2 p-3'>
-            <p className='text-right font-semibold text-sm'>
-                75%
+        <div className="p-4">
+            <h3 className="font-semibold">{course.title.length > 50 ? `${course.title.slice(0,47)}...` : course.title}</h3>
+            <p className="text-sm text-gray-500">Daniel Trinidad</p>
+            <p className="mt-2 text-purple-700 bg-purple-100 py-1 px-2 w-fit rounded-full text-xs font-semibold">
+                {course.level}
             </p>
-            <h3 className='font-semibold text-lg'>
-                {course.title}
-            </h3>
-            <p className='text-sm text-gray-500'>
-                {course.estimated_duration_hours} horas de contenido
+            <p className="mt-2">
+                <FaRegClock  size={12} className="inline mb-0.5" />
+                <span className="text-sm text-gray-500 ml-1">
+                    {course.estimated_duration_hours} horas
+                </span>
             </p>
-            <div className='h-2 w-full bg-purple-100 rounded-full'>
-                <div className='h-full bg-purple-700 rounded-full' style={{ width: '75%' }} />
-            </div>
-            <div className='flex justify-between'>
-                <OutlinedButton>
-                    Continuar
-                </OutlinedButton>
-
-                <Button variant='outlined' size='small' color='inherit' sx={{ borderColor: "#d1d5dc", px: 1.5, minWidth: "32px" }} >
-                    <GoBookmarkFill className='text-gray-500'  />
-                </Button>
-            </div>
+        </div>
+        <div className="border-t border-gray-300 px-4 py-2 mt-auto flex justify-between items-center">
+            <p>
+                {course.price === 0 ? "Gratis" : `$${course.price} MXM`}
+            </p>
+            <CiBookmark size={18}  />
         </div>
     </div>
   )

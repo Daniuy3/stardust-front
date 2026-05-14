@@ -1,29 +1,40 @@
 
 
-FROM node:24.14 AS builder
+ARG NODE_VERSION=24.13.0-slim
 
+FROM node:${NODE_VERSION} AS dependencies
 WORKDIR /app
 
 RUN corepack enable
+COPY package.json pnpm-workspace.yaml* pnpm-lock.yaml*  ./
 
-COPY package.json pnpm-lock.yaml ./
-COPY pnpm-workspace.yaml ./
+
 RUN pnpm install
 
+
+FROM node:${NODE_VERSION} AS builder
+WORKDIR /app
+
+COPY --from=dependencies /app/node_modules ./node_modules
 COPY . .
+
+RUN corepack enable
 RUN pnpm build
 
-FROM node:24.14 AS runner
+
+FROM node:${NODE_VERSION} AS runner
 
 WORKDIR /app
 
-RUN corepack enable
+COPY --from=builder --chown=node:node /app/public ./public
 
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/package.json ./
-COPY --from=builder /app/pnpm-lock.yaml ./
-COPY --from=builder /app/pnpm-workspace.yaml ./
+RUN mkdir .next
+RUN chown node:node .next
 
-RUN pnpm install --prod
-CMD [ "pnpm", "run", "start" ]
+COPY --from=builder --chown=node:node /app/.next/standalone ./
+COPY --from=builder --chown=node:node /app/.next/static ./.next/static
+
+USER node
+EXPOSE 3000
+
+CMD ["node", "server.js"]
