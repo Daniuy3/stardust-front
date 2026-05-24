@@ -55,7 +55,8 @@ export const Presentation = () => {
                 <motion.div 
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.2, ease: "backOut" }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5,  ease: "backOut", delay: index * 0.2,  }}
                     key={index} className="flex flex-col items-center justify-center gap-3 "
                 >
                     <div className="text-4xl text-center">{item.icon}</div>

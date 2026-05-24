@@ -69,7 +69,7 @@ export const Tabs = () => {
 
         <div className='min-h-0 h-full lg:h-auto flex-1 overflow-y-auto py-5'>
             <CustomTabPanel value={value} index={0}>
-                <div className='grid sm:grid-cols-2 gap-5'>
+                <div className='flex flex-wrap gap-4'>
                         {
                             courses.map((course) => (
                                 <CourseCard course={course} key={course.id} />
