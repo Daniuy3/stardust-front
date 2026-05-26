@@ -35,7 +35,7 @@ export const metadata : Metadata = {
   metadataBase: new URL("https://stardustui.com/")
 }
 
-type RedirectReason = "no_token" | "invalid_token" | undefined | null;
+type RedirectReason = "no_token" | "invalid_token"| "refresh_failed"  | "logged_out" | undefined | null;
 
 export default async function Page({
     searchParams

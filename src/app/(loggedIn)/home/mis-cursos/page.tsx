@@ -1,6 +1,5 @@
 import { decrypt } from "@/lib/session";
 import { cookies } from "next/headers";
-import { Presentation } from "./compontents/Presentation";
 import { Tabs } from "./compontents/Tabs";
 import { ProgressChart } from "./compontents/ProgressChart";
 import { OutlinedButton } from "@/components/Button";
@@ -29,7 +28,6 @@ export default async function Page() {
 
     return (
         <div className="flex h-full w-full max-w-360 mx-auto flex-col px-5 py-3 min-h-0 overflow-hidden">
-            <Presentation name={name} />
 
             <div className="xl:grid flex-1 min-h-0 grid-cols-7 grid-rows-4 pt-5 gap-5">
                 

@@ -5,6 +5,8 @@ export interface LoginFormValues {
     password: string;
 }
 
+export type UserRole = 'admin' | 'teacher' | 'student';
+
 
 export interface LoginResponse {
     message: string;
@@ -16,7 +18,7 @@ export interface LoginResponse {
             id: number;
             display_name: string;
             email: string;
-            roles: string[];
+            roles: UserRole[];
         }
     }
 }

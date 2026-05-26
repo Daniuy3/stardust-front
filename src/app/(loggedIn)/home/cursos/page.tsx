@@ -9,13 +9,13 @@ import { courses } from "@/data/courses-example";
 import { CourseCard } from "../mis-cursos/compontents/CourseCard";
 import { FIltersMenu } from "./components/FIltersMenu";
 
+export const dynamic = 'force-dynamic';
+
 
 
 export default async function Page() {
     
     const { success, data, error } = await getCourses();
-
-    console.log(data);
 
     if(!success || !data) {
         return (
