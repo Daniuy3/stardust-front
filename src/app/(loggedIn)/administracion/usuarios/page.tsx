@@ -10,6 +10,8 @@ import { getUsers } from "./api";
 import { UsersCount } from "./components/UsersCount";
 import { CreateUser } from "./components/CreateUser";
 
+export const dynamic = 'force-dynamic';
+
 export default async function Page() {
 
     const users = await getUsers();

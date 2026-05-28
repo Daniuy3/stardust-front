@@ -10,7 +10,7 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 
 interface Props {
-    redirectReason: "no_token" | "invalid_token" | undefined | null;
+    redirectReason: "no_token" | "invalid_token"| "refresh_failed" | "logged_out" | undefined | null;
 }
 
 export const LoginForm = ({ redirectReason }: Props) => {
@@ -23,6 +23,8 @@ export const LoginForm = ({ redirectReason }: Props) => {
             showSnackBar("Por favor inicia sesión para continuar", "warning");
         } else if (redirectReason === "invalid_token") {
             showSnackBar("Tu sesión ha expirado, por favor inicia sesión nuevamente", "warning");
+        } else if (redirectReason === "logged_out") {
+            showSnackBar("Has cerrado sesión correctamente", "success");
         }
     },[redirectReason, showSnackBar])
     

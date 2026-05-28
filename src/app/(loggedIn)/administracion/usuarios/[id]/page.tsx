@@ -14,6 +14,8 @@ import { Activity } from "./components/Activity";
 import { RelatedCourses } from "./components/RelatedCourses";
 import { UserActions } from "./components/UserActions";
 
+export const dynamic = 'force-dynamic';
+
 
 
 
