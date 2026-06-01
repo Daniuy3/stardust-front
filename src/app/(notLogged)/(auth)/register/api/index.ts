@@ -27,7 +27,7 @@ export const registerUser = async (data: RegisterFormValues): Promise<RegisterAc
 
         if(error instanceof AxiosError) {
 
-            console.log("Axios error details:", {
+            console.error("Axios error details:", {
                 message: error.message,
                 response: error.response?.data,
                 status: error.response?.status,

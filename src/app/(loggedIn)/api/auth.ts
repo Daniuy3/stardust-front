@@ -16,7 +16,7 @@ export const logout = async () => {
 
     try {
         const response = await fetchWithAuth<LogoutResponse>(client => client.post("/auth/logout"));
-        console.log("Logout response:", response);
+
         if (!response.success) {
             return {
                 success: false,
