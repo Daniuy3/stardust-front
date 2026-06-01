@@ -3,6 +3,7 @@
 import axios, { AxiosError } from "axios";
 import { createSession } from "@/lib/session";
 import { LoginErrorResponse, LoginResponse } from "../interfaces";
+import { redirect } from "next/navigation";
 
 export async function loginUser(email: string, password: string) {
     try {
@@ -37,4 +38,9 @@ export async function loginUser(email: string, password: string) {
 
 export async function createSessionAction(personal: LoginResponse["data"]["user"], token: string) {
     await createSession(personal, token);
+}
+
+export async function createSessionAndRedirectAction(personal: LoginResponse["data"]["user"], token: string) {
+    await createSession(personal, token);
+    redirect('/home/mis-cursos');
 }

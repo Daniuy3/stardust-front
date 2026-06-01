@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   images:{
     qualities: [50, 75, 100]
   },
+  env: {
+    API_URL: process.env.API_URL,
+  },
   redirects: async () => {
     return [
       {

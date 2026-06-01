@@ -3,11 +3,12 @@
 import { TextButton, ContainedButton } from '@/components/Button'
 import { PasswordInput } from '@/components/PasswordInput'
 import { TextField, Checkbox } from '@mui/material'
-import { FaGithub, FaGoogle } from 'react-icons/fa'
+import { FaGithub } from 'react-icons/fa'
 import { useLogin } from '../hooks/useAuth';
 import { useSnackBarStore } from '@/hooks/useSnackbar';
 import { useEffect } from 'react';
 import Link from 'next/link';
+import { GoogleLogin } from '@/components/GoogleLogin';
 
 interface Props {
     redirectReason: "no_token" | "invalid_token"| "refresh_failed" | "logged_out" | undefined | null;
@@ -15,7 +16,9 @@ interface Props {
 
 export const LoginForm = ({ redirectReason }: Props) => {
 
-    const { formik } = useLogin();
+    const { 
+        formik,
+    } = useLogin();
     const { showSnackBar } = useSnackBarStore()
 
     useEffect(() => {
@@ -41,10 +44,7 @@ export const LoginForm = ({ redirectReason }: Props) => {
                     </p>
                 </div>
                 <div className="flex flex-col gap-4 mt-6">
-                    <button className="w-full flex items-center justify-center gap-2 py-2 px-4 border border-gray-300 rounded-lg hover:bg-gray-50 transition">
-                        <FaGoogle />
-                        Iniciar con Google
-                    </button>
+                    <GoogleLogin />
 
                     <button className="w-full flex items-center justify-center gap-2 py-2 px-4 border border-gray-300 rounded-lg hover:bg-gray-50 transition">
                         <FaGithub />
