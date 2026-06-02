@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
   },
   env: {
     API_URL: process.env.API_URL,
+    PUBLIC_REDIRECT_URL: process.env.PUBLIC_REDIRECT_URL
   },
   redirects: async () => {
     return [
