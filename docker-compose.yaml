@@ -1,8 +1,14 @@
 services:
   front:
+    build:
+      context: .
+      args:
+        API_URL: ${API_URL}
+        PUBLIC_REDIRECT_URL: ${PUBLIC_REDIRECT_URL}
     image:  daniuy/stardust-front:0.1.0
     ports:
       - "3000:3000"
     environment:
       - API_URL=${API_URL}
+      - PUBLIC_REDIRECT_URL=${PUBLIC_REDIRECT_URL}
       - SESSION_SECRET=${SESSION_SECRET}
