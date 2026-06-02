@@ -6,7 +6,7 @@ import { FaGoogle } from 'react-icons/fa'
 export const GoogleLogin = () => {
 
     const handleLoginWithGoogle = () => {
-        window.location.href = `${process.env.API_URL}/auth/oauth/google/redirect`;
+        window.location.href = `${process.env.PUBLIC_REDIRECT_URL}/auth/oauth/google/redirect`;
     }
     
   return (
