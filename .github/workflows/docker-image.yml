@@ -2,9 +2,11 @@ name: Stardust Front Image
 
 on:
   push:
-    branches: [ "master" ]
+    branches: ["master"]
+
 permissions:
   contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,26 +27,24 @@ jobs:
           major_pattern: "major("
           minor_pattern: "feat("
 
-      - name: Show calculated version
-        run: |
-          echo "version=${{ steps.version.outputs.version }}"
-          echo "major=${{ steps.version.outputs.major }}"
-          echo "minor=${{ steps.version.outputs.minor }}"
-          echo "patch=${{ steps.version.outputs.patch }}"
-
       - name: Docker Login
         env:
           DOCKER_USER: ${{ secrets.DOCKERHUB_USER }}
           DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
-        run: |
-          echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USER" --password-stdin
+        run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USER" --password-stdin
 
       - name: Build Docker Image
         env:
           NEW_VERSION: ${{ steps.version.outputs.version }}
+          API_URL: ${{ secrets.API_URL }}
+          PUBLIC_REDIRECT_URL: ${{ secrets.PUBLIC_REDIRECT_URL }}
         run: |
-          docker build -t daniuy/stardust-front:$NEW_VERSION .
-          docker build -t daniuy/stardust-front:latest .
+          docker build \
+            --build-arg API_URL="$API_URL" \
+            --build-arg PUBLIC_REDIRECT_URL="$PUBLIC_REDIRECT_URL" \
+            -t daniuy/stardust-front:$NEW_VERSION \
+            -t daniuy/stardust-front:latest \
+            .
 
       - name: Push Docker Image
         env:

@@ -6,6 +6,8 @@ services:
         API_URL: ${API_URL}
         PUBLIC_REDIRECT_URL: ${PUBLIC_REDIRECT_URL}
     image:  daniuy/stardust-front:0.1.0
+    expose:
+      - 8000
     ports:
       - "3000:3000"
     environment:
