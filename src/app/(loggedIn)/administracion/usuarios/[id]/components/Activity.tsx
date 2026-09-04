@@ -93,7 +93,7 @@ export const Activity = ({ items = [] } : Props) => {
         </div>
 
         <div style={{ marginTop: '1.25rem' }}>
-            <TextButton style={{ width: '100%' }}>
+            <TextButton data-umami-event="Click en ver toda la actividad del usuario" style={{ width: '100%' }}>
                 Ver toda la actividad
             </TextButton>
         </div>

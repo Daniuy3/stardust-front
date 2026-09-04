@@ -39,6 +39,7 @@ export const UserActions = ({ user, onOpenEdit, onOpenToggleActive, onClose }: P
     return (
         <>
             <TextButton 
+                data-umami-event="Click en abrir acciones de usuario"
                 onClick={handleClick}
             >
                 <TbDots size={18} />
@@ -55,7 +56,10 @@ export const UserActions = ({ user, onOpenEdit, onOpenToggleActive, onClose }: P
                 },
                 }}
             >
-                <MenuItem onClick={() => onOpenToggleActive(user.status === "active", user.id)}>
+                <MenuItem
+                    data-umami-event={user.status === "active" ? "Click en desactivar usuario" : "Click en reactivar usuario"}
+                    onClick={() => onOpenToggleActive(user.status === "active", user.id)}
+                >
 
                     <ListItemIcon>
                         {
@@ -66,7 +70,7 @@ export const UserActions = ({ user, onOpenEdit, onOpenToggleActive, onClose }: P
                         user.status === "active" ? "Desactivar" : "Reactivar"
                     }
                 </MenuItem>
-                <MenuItem onClick={handleEdit}>
+                <MenuItem data-umami-event="Click en editar usuario" onClick={handleEdit}>
                     <ListItemIcon>
                         <FaEdit size={18} />
                     </ListItemIcon>

@@ -47,7 +47,10 @@ export default async function Page() {
                 </div>
 
                 <div className="ml-auto mt-auto hidden md:block">
-                    <button className="cursor-pointer border border-gray-300 rounded-md px-4 py-2 font-medium text-gray-700 hover:bg-gray-100 flex items-center gap-2">
+                    <button
+                        data-umami-event="Click en guardar búsqueda de cursos"
+                        className="cursor-pointer border border-gray-300 rounded-md px-4 py-2 font-medium text-gray-700 hover:bg-gray-100 flex items-center gap-2"
+                    >
                         <CiBookmark size={18} />
                         Guardar Busqueda 
                     </button>

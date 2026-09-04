@@ -1,7 +1,7 @@
 "use client"
 
-import { ContainedButton, OutlinedButton } from '@/components/Button'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 import { AiFillThunderbolt } from 'react-icons/ai'
 import { BsGraphUpArrow, BsLockFill } from 'react-icons/bs'
@@ -63,14 +63,19 @@ export const Hero = () => {
                     </p>
 
                     <div className="flex gap-5 justify-center lg:justify-start">
-                        <ContainedButton >
-                            Quiero un proyecto
-                        </ContainedButton>
-                        <OutlinedButton 
-                            startIcon={<FaCalendarAlt />}
+                        <Link
+                            href="/contacto"
+                            className="inline-flex min-h-11 items-center justify-center rounded-[5px] bg-[#9810fa] px-5 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-purple-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-600"
                         >
+                            Quiero un proyecto
+                        </Link>
+                        <Link
+                            href="/contacto"
+                            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-[5px] border border-[#9810fa] px-5 py-2.5 text-xs font-semibold text-[#9810fa] transition-colors hover:bg-purple-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-600"
+                        >
+                            <FaCalendarAlt aria-hidden="true" />
                             Agendar llamada
-                        </OutlinedButton>
+                        </Link>
                     </div>
                     <div className="flex flex-col items-center md:flex-row md:items-start gap-5">
                         {

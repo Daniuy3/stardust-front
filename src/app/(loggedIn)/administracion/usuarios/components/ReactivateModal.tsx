@@ -27,11 +27,13 @@ export const ReactivateModal = ({  open, onClose, onReactivate, title, descripti
 
         <DialogActions>
             <OutlinedButton
+                data-umami-event="Click en cancelar cambio de estado de usuario"
                 onClick={onClose}
             >
                 Cancelar
             </OutlinedButton>
             <ContainedButton
+                data-umami-event="Click en confirmar cambio de estado de usuario"
                 onClick={onReactivate}
                 disabled={loading}
             >

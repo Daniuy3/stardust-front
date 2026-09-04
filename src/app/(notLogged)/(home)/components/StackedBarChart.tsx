@@ -1,5 +1,6 @@
 "use client"
 
+import Link from 'next/link';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 const dataParsed = [1,2,3,4,5,6].map((num) => ({
@@ -24,9 +25,12 @@ export const StackedBarChart = () => {
                 El crecimiento no es inmediato ni aleatorio, es acumulativo. Empieza con cambios pequeños que, bien ejecutados, comienzan a reflejarse en métricas claras. Con el tiempo, esos resultados dejan de ser aislados y se vuelven consistentes, permitiendo escalar sin depender de picos o esfuerzos improvisados. 
             </p>
 
-            <button className="mt-8 mx-auto px-6 py-3 bg-purple-600 max-w-60 cursor-pointer text-white rounded-md font-semibold hover:bg-purple-700 transition">
+            <Link
+                href="/contacto"
+                className="mx-auto mt-8 inline-flex min-h-11 max-w-60 items-center justify-center rounded-md bg-purple-600 px-6 py-3 font-semibold text-white transition hover:bg-purple-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-600"
+            >
                 Quiero un Proyecto
-            </button>
+            </Link>
         </div>
 
         <div className='mx-auto w-full md:w-10/12 lg:w-1/2'>

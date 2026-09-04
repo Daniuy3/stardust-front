@@ -11,6 +11,7 @@ export const GoogleLogin = () => {
     
   return (
     <button 
+        data-umami-event="Click en iniciar sesión con Google"
         className="w-full flex items-center justify-center gap-2 py-2 px-4 border border-gray-300 rounded-lg hover:bg-gray-50 transition cursor-pointer"
         onClick={handleLoginWithGoogle}
     >

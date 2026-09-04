@@ -32,6 +32,7 @@ export default async function Page() {
                     </div>
                     <div className="mt-5 w-10/12 mx-auto bg-gray-100">
                         <OutlinedButton 
+                            data-umami-event="Click en ver estadísticas de aprendizaje"
                             fullWidth 
                             className="mt-5" 
                             sx={{bgcolor: "#f3f4f6"}} 

@@ -38,6 +38,7 @@ export const UserMenu = ({
         <MenuItem onClick={handleClose}>
             <Link href={`/profile/${id}`}>
                 <TextButton 
+                    data-umami-event="Click en ver perfil"
                     startIcon={<CgProfile />}
                 >
                     Ver Perfil
@@ -46,6 +47,7 @@ export const UserMenu = ({
         </MenuItem>
         <MenuItem onClick={() => logout()}>
             <TextButton
+                data-umami-event="Click en cerrar sesión"
                 startIcon={<TbLogout />}
             >
                 Cerrar Sesión
