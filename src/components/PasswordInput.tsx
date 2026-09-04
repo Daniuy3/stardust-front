@@ -40,6 +40,7 @@ export const PasswordInput = ({error, title, errorMessage,...rest} : Props) => {
             endAdornment={
             <InputAdornment position="end">
                 <IconButton
+                    data-umami-event={showPassword ? 'Click en ocultar contraseña' : 'Click en mostrar contraseña'}
                     aria-label={
                         showPassword ? 'Ocultar Contraseña' : 'Mostrar Contraseña'
                     }

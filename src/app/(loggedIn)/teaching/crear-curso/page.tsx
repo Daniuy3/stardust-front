@@ -42,13 +42,17 @@ export default function Page() {
                 </Tabs>
 
                 <div className="flex gap-2 py-2 -translate-y-1">
-                    <button className="border border-gray-300 text-gray-600 flex gap-3 items-center px-4 py-1 rounded-lg">
+                    <button
+                        data-umami-event="Click en vista previa del curso"
+                        className="border border-gray-300 text-gray-600 flex gap-3 items-center px-4 py-1 rounded-lg"
+                    >
                         
                         <FaRegEye size={16}/> 
                         Vista previa
                     </button>
 
                     <ContainedButton
+                        data-umami-event="Click en guardar curso"
                         startIcon={<CiSaveDown2 fontWeight={700}  size={16}/>}
                     >
                         Guardar

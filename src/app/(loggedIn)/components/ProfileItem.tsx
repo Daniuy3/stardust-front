@@ -18,7 +18,11 @@ export const ProfileItem = ({ display_name, id }: { display_name: string; id: nu
 
   return (
     <>
-        <button className='flex border-t border-gray-300 pt-3 cursor-pointer' onClick={handleClick}>
+        <button
+            data-umami-event="Click en abrir detalles del perfil"
+            className='flex border-t border-gray-300 pt-3 cursor-pointer'
+            onClick={handleClick}
+        >
             <div className='relative h-12 w-12 bg-purple-800 rounded-full'>
                 <p className='text-white font-bold absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'>
                     {

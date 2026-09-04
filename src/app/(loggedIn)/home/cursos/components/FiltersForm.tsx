@@ -21,7 +21,7 @@ export const FiltersForm = () => {
     <form className="flex min-h-0 flex-col gap-4 h-full">
         <div className="flex items-center justify-between">
             <h2 className="font-medium text-lg">Filtros</h2>
-            <button className="text-sm text-purple-500">Limpiar</button>
+            <button data-umami-event="Click en limpiar filtros de cursos" className="text-sm text-purple-500">Limpiar</button>
         </div>
 
         <Select 
@@ -124,7 +124,7 @@ export const FiltersForm = () => {
             ]}
         /> 
 
-        <OutlinedButton sx={{mt: "auto"}}>
+        <OutlinedButton data-umami-event="Click en mostrar cursos filtrados" sx={{mt: "auto"}}>
             Mostrar resultados
         </OutlinedButton> 
     </form>

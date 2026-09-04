@@ -290,11 +290,16 @@ export const RegisterForm = () => {
 
             <div className="ml-auto flex gap-2">
                 {!isFirstStep && (
-                    <OutlinedButton type="button" onClick={handleBack}>
+                    <OutlinedButton
+                        data-umami-event="Click en regresar un paso del registro"
+                        type="button"
+                        onClick={handleBack}
+                    >
                         Atras
                     </OutlinedButton>
                 )}
                 <ContainedButton
+                    data-umami-event={activeStep === 2 ? "Click en finalizar registro" : "Click en avanzar registro"}
                     type="button"
                     onClick={activeStep === 2 ? handleFinish : handleNext}
                     disabled={formik.isSubmitting || (isLastStep && !canFinish)}

@@ -20,7 +20,7 @@ export const FIltersMenu = () => {
 
   return (
     <div className='xl:hidden'>
-        <IconButton onClick={handleClick}>
+        <IconButton data-umami-event="Click en abrir filtros de cursos" onClick={handleClick}>
             <IoFilterSharp className="text-purple-600"/>
         </IconButton>
 

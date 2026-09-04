@@ -15,7 +15,13 @@ export const CourseSearcher = () => {
             />
 
             <div>
-                <IconButton type="button" size='small' aria-label="search" sx={{ p: '10px' }}>
+                <IconButton
+                    data-umami-event="Click en buscar cursos"
+                    type="button"
+                    size='small'
+                    aria-label="search"
+                    sx={{ p: '10px' }}
+                >
                     <LuSearch />
                 </IconButton>
             </div>

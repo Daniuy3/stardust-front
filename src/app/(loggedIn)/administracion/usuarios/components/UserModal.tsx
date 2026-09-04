@@ -94,13 +94,13 @@ export const UserModal = ({ open, title = 'Añadir Usuario', formik, onClose, ha
                             onChange={handleRoles}
                             aria-label="roles"
                         >
-                            <ToggleButton value="admin" aria-label="admin">
+                            <ToggleButton data-umami-event="Click en asignar rol administrador" value="admin" aria-label="admin">
                                 Administrador
                             </ToggleButton>
-                            <ToggleButton value="teacher" aria-label="teacher">
+                            <ToggleButton data-umami-event="Click en asignar rol profesor" value="teacher" aria-label="teacher">
                                 Profesor
                             </ToggleButton>
-                            <ToggleButton value="student" aria-label="student">
+                            <ToggleButton data-umami-event="Click en asignar rol estudiante" value="student" aria-label="student">
                                 Estudiante
                             </ToggleButton>
                         </ToggleButtonGroup>
@@ -229,10 +229,11 @@ export const UserModal = ({ open, title = 'Añadir Usuario', formik, onClose, ha
             </DialogContent>
 
             <DialogActions>
-                <OutlinedButton onClick={onClose}>
+                <OutlinedButton data-umami-event="Click en cancelar edición de usuario" onClick={onClose}>
                     Cancelar
                 </OutlinedButton>
                 <ContainedButton 
+                    data-umami-event="Click en guardar usuario"
                     onClick={() => formik.handleSubmit()} 
                     loading={formik.isSubmitting}
                     disabled={!formik.isValid || formik.isSubmitting}

@@ -50,7 +50,7 @@ export const TableLoader = () => {
         </TableCell>
 
         <TableCell>
-            <TextButton>
+            <TextButton data-umami-event="Click en abrir acciones de usuario">
                 <TbDots size={18} />
             </TextButton>
         </TableCell>

@@ -20,6 +20,7 @@ export const CreateUser = () => {
     return (
         <>
             <ContainedButton
+                data-umami-event="Click en agregar usuario"
                 sx={{
                     ml: 2,
                     borderRadius: "4px",

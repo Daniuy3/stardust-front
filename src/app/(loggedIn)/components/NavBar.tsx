@@ -81,6 +81,7 @@ export const NavBar = ({ display_name, id }: { display_name: string; id: number 
 
 
             <button 
+                data-umami-event="Click en abrir menú de usuario"
                 className='rounded-full h-10 w-10 bg-purple-700 relative cursor-pointer'
                 onClick={handleClickUsr}
             >
@@ -91,6 +92,7 @@ export const NavBar = ({ display_name, id }: { display_name: string; id: number 
 
 
             <IconButton
+                data-umami-event={open ? "Click en cerrar menú de navegación" : "Click en abrir menú de navegación"}
                 onClick={handleClick}
                 size="large"
                 sx={{ ml: 2 }}

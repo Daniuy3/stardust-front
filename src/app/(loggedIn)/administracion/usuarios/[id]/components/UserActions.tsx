@@ -32,6 +32,7 @@ export const UserActions = ({ user } : Props) => {
     <div className="flex flex-col justify-between  xl:ml-auto gap-3">
         <div className="flex flex-col sm:flex-row justify-center xl:justify-end gap-5 md:max-h-10 items-center">
             <OutlinedButton
+                data-umami-event="Click en editar usuario"
                 startIcon={<FaEdit size={14}/>}
                 size="small"
                 onClick={() => handleOpenModal(fromUserUpdateData(user))}
@@ -40,6 +41,7 @@ export const UserActions = ({ user } : Props) => {
             </OutlinedButton>
 
             <OutlinedButton
+                data-umami-event={user.status === 'active' ? 'Click en desactivar usuario' : 'Click en activar usuario'}
                 onClick={() => handleOpenActiveModal(user.status === "active", user.id)}
                 startIcon={
                     user.status === 'active' ? <PiProhibitBold size={14} /> : <FaCheckCircle size={14} />
