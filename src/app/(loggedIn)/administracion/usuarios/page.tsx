@@ -61,6 +61,7 @@ export default async function Page() {
 
                     <div className="flex gap-2 lg:ml-auto justify-center lg:justify-end">
                         <Button
+                            data-umami-event="Click en exportar usuarios"
                             sx={{
                                 borderColor: "#d1d5dc",
                                 color: "#374151",
@@ -124,6 +125,7 @@ export default async function Page() {
                         />
 
                         <TextButton
+                            data-umami-event="Click en limpiar filtros de usuarios"
                             startIcon={<TfiReload  size={14}/>}
                             className="shrink-0"
                         >

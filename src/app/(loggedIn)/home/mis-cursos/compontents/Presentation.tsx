@@ -45,12 +45,12 @@ export const Presentation = ({ name = '[Nombre del usuario]' }: PresentationProp
             </FormControl>
 
             <div className='flex gap-5 items-center'>
-                <IconButton size='large'>
+                <IconButton data-umami-event="Click en abrir mensajes" size='large'>
                     <LuMessageSquare size={18} />
                     <StyledBadge badgeContent={2} color="secondary" overlap="circular" />
                 </IconButton>
 
-                <IconButton size='large'>
+                <IconButton data-umami-event="Click en abrir notificaciones" size='large'>
                     <FaRegBell  size={18} />
                     <StyledBadge badgeContent={2} color="secondary" overlap="circular" />
                 </IconButton>

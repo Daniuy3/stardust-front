@@ -72,7 +72,10 @@ export const CoursesIntroduction = () => {
               ))}
             </ul>
 
-            <button className="mx-auto md:mx-0 block mt-10 text-purple-800 cursor-pointer hover:text-purple-900 transition font-bold underline underline-offset-3">
+            <button
+                data-umami-event="Click en ver todos los cursos"
+                className="mx-auto md:mx-0 block mt-10 text-purple-800 cursor-pointer hover:text-purple-900 transition font-bold underline underline-offset-3"
+            >
                 <Link href="/cursos">
                     Ver Todos los Cursos
                 </Link>

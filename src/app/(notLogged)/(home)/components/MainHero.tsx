@@ -25,11 +25,15 @@ export const MainHero = () => {
             </p>
 
             <div className="flex gap-5 mt-5 items-center justify-center lg:justify-start">
-              <button className="px-6 py-3 bg-purple-600 cursor-pointer text-white rounded-md font-semibold hover:bg-purple-700 transition">
+              <Link
+                href="/contacto"
+                data-umami-event="Click en quiero un proyecto"
+                className="rounded-md bg-purple-600 px-6 py-3 font-semibold text-white transition hover:bg-purple-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-600"
+              >
                 Quiero un Proyecto
-              </button>
+              </Link>
               <Link href="/cursos" >
-                <OutlinedButton>
+                <OutlinedButton data-umami-event="Click en nuestros cursos">
                   Nuestros Cursos
                 </OutlinedButton>
               </Link> 

@@ -28,6 +28,7 @@ export default function NestedList({ items } : Props) {
             items.map((item, index) => (
                 <Link href={item.link} key={index} className='w-full'>
                     <ListItemButton 
+                        data-umami-event={`Click en navegar a ${item.text}`}
                         sx={{ 
                             pl: 2, 
                             borderRadius: "8px",

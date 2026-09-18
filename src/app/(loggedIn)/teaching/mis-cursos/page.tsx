@@ -31,6 +31,7 @@ export default function Page() {
 
                         <div className="h-8">
                             <ContainedButton
+                                data-umami-event="Click en crear curso"
                                 startIcon={<FaPlus />}
                             >
                                 Crear curso
@@ -237,22 +238,34 @@ export default function Page() {
 
                                     </div>
                                     <div className="pr-5 py-5 flex flex-col justify-between">
-                                        <button className="text-sm text-purple-600 border border-purple-600 bg-purple-100 px-5 rounded-sm font-semibold py-1 flex gap-2 items-center justify-between w-full">
+                                        <button
+                                            data-umami-event="Click en editar curso"
+                                            className="text-sm text-purple-600 border border-purple-600 bg-purple-100 px-5 rounded-sm font-semibold py-1 flex gap-2 items-center justify-between w-full"
+                                        >
                                             Editar
                                             <IoIosArrowForward size={14} /> 
                                         </button>
 
-                                        <button className="text-sm border border-gray-300  px-5 rounded-sm font-semibold py-1 flex gap-2 items-center w-full">
+                                        <button
+                                            data-umami-event="Click en administrar contenido del curso"
+                                            className="text-sm border border-gray-300  px-5 rounded-sm font-semibold py-1 flex gap-2 items-center w-full"
+                                        >
                                             <CiPlay1  size={14} /> 
                                             Contenido
                                         </button>
 
-                                        <button className="text-sm border border-gray-300  px-5 rounded-sm font-semibold py-1 flex gap-2 items-center w-full">
+                                        <button
+                                            data-umami-event="Click en administrar alumnos del curso"
+                                            className="text-sm border border-gray-300  px-5 rounded-sm font-semibold py-1 flex gap-2 items-center w-full"
+                                        >
                                             <IoPeopleOutline   size={14} /> 
                                             Alumnos
                                         </button>
 
-                                        <button className="text-sm border border-gray-300  px-5 rounded-sm font-semibold py-1 flex gap-2 items-center w-full">
+                                        <button
+                                            data-umami-event="Click en administrar tareas del curso"
+                                            className="text-sm border border-gray-300  px-5 rounded-sm font-semibold py-1 flex gap-2 items-center w-full"
+                                        >
                                             <TiDocumentText    size={14} /> 
                                             Tareas
                                         </button>
@@ -408,7 +421,10 @@ export default function Page() {
                             Tema: Hooks avanzados
                         </p>
 
-                            <button className="text-sm border border-purple-600 text-purple-600 bg-purple-100  px-5 rounded-sm font-semibold py-2 flex gap-2 items-center w-full justify-center">
+                            <button
+                                data-umami-event="Click en ir a la sala de clase"
+                                className="text-sm border border-purple-600 text-purple-600 bg-purple-100  px-5 rounded-sm font-semibold py-2 flex gap-2 items-center w-full justify-center"
+                            >
                                 <IoVideocamOutline />
                                 Ir a la sala
                             </button>

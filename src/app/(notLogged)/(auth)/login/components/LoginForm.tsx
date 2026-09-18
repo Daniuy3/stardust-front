@@ -46,7 +46,10 @@ export const LoginForm = ({ redirectReason }: Props) => {
                 <div className="flex flex-col gap-4 mt-6">
                     <GoogleLogin />
 
-                    <button className="w-full flex items-center justify-center gap-2 py-2 px-4 border border-gray-300 rounded-lg hover:bg-gray-50 transition">
+                    <button
+                        data-umami-event="Click en iniciar sesión con GitHub"
+                        className="w-full flex items-center justify-center gap-2 py-2 px-4 border border-gray-300 rounded-lg hover:bg-gray-50 transition"
+                    >
                         <FaGithub />
                         Iniciar con GitHub
                     </button>
@@ -99,6 +102,7 @@ export const LoginForm = ({ redirectReason }: Props) => {
                         </div>
 
                         <TextButton 
+                            data-umami-event="Click en recuperar contraseña"
                             size="small"
                         >
                             <p className="capitalize text-xs">
@@ -108,6 +112,7 @@ export const LoginForm = ({ redirectReason }: Props) => {
                     </div>
 
                     <ContainedButton 
+                        data-umami-event="Click en iniciar sesión"
                         sx={{width: "100%"}} 
                         onClick={() => formik.handleSubmit()}
                         disabled={formik.isSubmitting || !formik.isValid}
@@ -117,7 +122,10 @@ export const LoginForm = ({ redirectReason }: Props) => {
                     </ContainedButton>
 
                     <div className="flex justify-center">
-                            <TextButton size="small" >
+                            <TextButton
+                                data-umami-event="Click en registrarse"
+                                size="small"
+                            >
                                 <Link 
                                     href="/register"
                                     className="text-gray-600"

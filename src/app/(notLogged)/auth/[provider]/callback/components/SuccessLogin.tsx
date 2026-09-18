@@ -54,6 +54,7 @@ export const SuccessLogin = ({ provider, data }: Props) => {
         />
 
         <ContainedButton
+            data-umami-event="Click en ir a mi perfil"
             endIcon={<HiMiniArrowRight />}
             onClick={handleLogin}
         >

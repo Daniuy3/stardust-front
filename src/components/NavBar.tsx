@@ -16,7 +16,7 @@ export const NavBar = () => {
     { name: "Servicios", href: "/servicios" },
     { name: "Cursos", href: "/cursos" },
     { name: "Proyectos", href: "/#proyectos", disabled: true },
-    { name: "Contacto", href: "/#contacto", main: true },
+    { name: "Contacto", href: "/contacto", main: true },
     { name: "Iniciar sesión", href: "/login" },
   ]
 
@@ -28,7 +28,11 @@ export const NavBar = () => {
   };
 
   return (
-    <div className="flex justify-between items-center px-5 md:px-10 shadow sticky top-0 bg-white z-50">
+    <header className="sticky top-0 z-50 bg-white shadow">
+      <nav
+        aria-label="Navegación principal"
+        className="flex items-center justify-between px-5 md:px-10"
+      >
         <div className="aspect-video relative min-w-36">
           <Image 
             src="/stardust.svg"
@@ -41,31 +45,31 @@ export const NavBar = () => {
         <div className="gap-5 items-center hidden md:flex">
           {
             pages.map((page) => (
-              
-                page.main ? (
-                  <button
+                page.disabled ? (
+                  <span
                     key={page.name}
-                    disabled={page.disabled}
+                    aria-disabled="true"
+                    className="cursor-not-allowed text-gray-400"
                   >
-                    <Link 
-                      href="/#contact"
-                      className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition-colors duration-300"
-                    >
-                      {page.name}
-                    </Link>
-                  </button>)
+                    {page.name}
+                  </span>
+                ) : page.main ? (
+                  <Link
+                    key={page.name}
+                    href={page.href}
+                    data-umami-event={`Click en ${page.name.toLowerCase()}`}
+                    className="rounded bg-purple-600 px-4 py-2 text-white transition-colors duration-300 hover:bg-purple-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-600"
+                  >
+                    {page.name}
+                  </Link>)
                 : (
-                  <button
+                  <Link
                     key={page.name}
-                    disabled={page.disabled}
-                    className="text-gray-700 hover:text-gray-900"
+                    href={page.href}
+                    className="text-gray-700 transition-colors hover:text-gray-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-600"
                   >
-                    <Link 
-                      href={page.href}
-                    >
-                      {page.name}
-                    </Link>
-                  </button>
+                    {page.name}
+                  </Link>
                 )
             ))
           }
@@ -73,9 +77,11 @@ export const NavBar = () => {
 
         <div className="md:hidden flex items-center">
           <IconButton
+            data-umami-event={open ? "Click en cerrar menú de navegación" : "Click en abrir menú de navegación"}
             onClick={handleClick}
             size="large"
             sx={{ ml: 2 }}
+            aria-label={open ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
             aria-controls={open ? 'account-menu' : undefined}
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
@@ -120,42 +126,55 @@ export const NavBar = () => {
             transformOrigin={{ horizontal: 'right', vertical: 'top' }}
             anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
           >
-              
-              <MenuItem onClick={handleClose} sx={{px:7}}>
-                <p className="text-center w-full">
-                  Inicio
-                </p>
+              <MenuItem
+                component={Link}
+                href="/#inicio"
+                onClick={handleClose}
+                sx={{px:7, justifyContent: "center"}}
+              >
+                Inicio
               </MenuItem>
               
-              <MenuItem onClick={handleClose} sx={{px:7, textAlign: "center"}}>
-                <Link href="/servicios" className="text-center w-full">
-                  Servicios
-                </Link>
+              <MenuItem
+                component={Link}
+                href="/servicios"
+                onClick={handleClose}
+                sx={{px:7, justifyContent: "center"}}
+              >
+                Servicios
               </MenuItem>
-              <MenuItem onClick={handleClose} sx={{px:7, textAlign: "center"}}>
-                <p className="text-center w-full">
-                  Proyectos
-                </p>
+              <MenuItem
+                component={Link}
+                href="/cursos"
+                onClick={handleClose}
+                sx={{px:7, justifyContent: "center"}}
+              >
+                Cursos
               </MenuItem>
-              <MenuItem onClick={handleClose} sx={{px:7, textAlign: "center"}}>
-                <Link href="/cursos" className="text-center w-full">
-                  Cursos
-                </Link>
+              <MenuItem disabled sx={{px:7, justifyContent: "center"}}>
+                Proyectos
               </MenuItem>
               <Divider />
-              <MenuItem onClick={handleClose} sx={{px:7, textAlign: "center"}}>
-                <p className="text-center w-full">
-                  Contacto
-                </p>
+              <MenuItem
+                component={Link}
+                href="/contacto"
+                onClick={handleClose}
+                sx={{px:7, justifyContent: "center"}}
+              >
+                Contacto
               </MenuItem>
 
-              <MenuItem onClick={handleClose} sx={{px:7, textAlign: "center"}}>
-                <Link href="/login" className="text-center w-full">
-                    Iniciar sesión
-                </Link>
+              <MenuItem
+                component={Link}
+                href="/login"
+                onClick={handleClose}
+                sx={{px:7, justifyContent: "center"}}
+              >
+                Iniciar sesión
               </MenuItem>
             </Menu>
         </div>
-    </div>
+      </nav>
+    </header>
   )
 }

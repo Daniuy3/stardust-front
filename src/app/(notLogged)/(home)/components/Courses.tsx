@@ -15,7 +15,10 @@ export const Courses = () => {
                 </p>
             </div>
             <div className='flex-col justify-end flex'>
-                <button className="px-6 py-3  text-purple-800 cursor-pointer hover:text-purple-900 transition font-bold">
+                <button
+                    data-umami-event="Click en ver todos los cursos"
+                    className="px-6 py-3  text-purple-800 cursor-pointer hover:text-purple-900 transition font-bold"
+                >
                     <Link href="/cursos">
                         Ver Todos los Cursos
                     </Link>

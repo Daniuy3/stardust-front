@@ -28,7 +28,10 @@ export const CourseCard = ({ course }: Props) => {
                 {course.title}
             </h2>
             <p className='text-sm'>{course.short_description}</p>
-            <button className="px-6 py-3  text-gray-800 cursor-pointer rounded-md font-bold hover:bg-gray-200 transition">
+            <button
+                data-umami-event="Click en ver curso"
+                className="px-6 py-3  text-gray-800 cursor-pointer rounded-md font-bold hover:bg-gray-200 transition"
+            >
                 Ver Curso 
             </button>
         </div>
