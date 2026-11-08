@@ -3,7 +3,6 @@
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "motion/react"
-import { OutlinedButton } from "@/components/Button"
 
 export const MainHero = () => {
   return (
@@ -32,11 +31,6 @@ export const MainHero = () => {
               >
                 Quiero un Proyecto
               </Link>
-              <Link href="/cursos" >
-                <OutlinedButton data-umami-event="Click en nuestros cursos">
-                  Nuestros Cursos
-                </OutlinedButton>
-              </Link> 
             </div>
         </div>
         <div className="relative w-full h-64 md:h-96 md:w-2xl">
@@ -44,6 +38,7 @@ export const MainHero = () => {
             src="/computer.png"
             alt="Hero Image"
             fill
+            quality={100}
             className="mb-8 object-contain object-center h-full w-full"
           />
         </div>
