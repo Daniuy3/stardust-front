@@ -14,10 +14,8 @@ export const NavBar = () => {
   const pages = [
     { name: "Inicio", href: "/#inicio" },
     { name: "Servicios", href: "/servicios" },
-    { name: "Cursos", href: "/cursos" },
     { name: "Proyectos", href: "/#proyectos", disabled: true },
     { name: "Contacto", href: "/contacto", main: true },
-    { name: "Iniciar sesión", href: "/login" },
   ]
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -143,14 +141,6 @@ export const NavBar = () => {
               >
                 Servicios
               </MenuItem>
-              <MenuItem
-                component={Link}
-                href="/cursos"
-                onClick={handleClose}
-                sx={{px:7, justifyContent: "center"}}
-              >
-                Cursos
-              </MenuItem>
               <MenuItem disabled sx={{px:7, justifyContent: "center"}}>
                 Proyectos
               </MenuItem>
@@ -162,15 +152,6 @@ export const NavBar = () => {
                 sx={{px:7, justifyContent: "center"}}
               >
                 Contacto
-              </MenuItem>
-
-              <MenuItem
-                component={Link}
-                href="/login"
-                onClick={handleClose}
-                sx={{px:7, justifyContent: "center"}}
-              >
-                Iniciar sesión
               </MenuItem>
             </Menu>
         </div>

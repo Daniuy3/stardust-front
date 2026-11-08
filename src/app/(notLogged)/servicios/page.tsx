@@ -34,11 +34,6 @@ export const metadata : Metadata = {
         width: 1200,
         height: 630,
       },
-      {
-        url: "/login/login-bg.png",
-        width: 1200,
-        height: 630,
-      },
     ]
   },
   metadataBase: new URL("https://stardustui.com/")

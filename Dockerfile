@@ -15,11 +15,6 @@ RUN pnpm install
 FROM node:${NODE_VERSION} AS builder
 WORKDIR /app
 
-ARG API_URL
-ARG PUBLIC_REDIRECT_URL
-ENV API_URL=${API_URL}
-ENV PUBLIC_REDIRECT_URL=${PUBLIC_REDIRECT_URL}
-
 COPY --from=dependencies /app/node_modules ./node_modules
 COPY . .
 

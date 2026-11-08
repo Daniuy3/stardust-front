@@ -1,7 +1,5 @@
 
-import { CoursesIntroduction } from "./components/CoursesIntroduction";
 import { MainHero } from "./components/MainHero";
-import { Courses } from "./components/Courses";
 import { Metadata } from "next";
 import { Benefits } from "./components/Benefits";
 import { Delivery } from "./components/Delivery";
@@ -10,26 +8,21 @@ import { StackedBarChart } from "./components/StackedBarChart";
 import { Stages } from "./components/Stages";
 
 export const metadata : Metadata = {
-  title: "Desarrollo y Academia | Stardust",
-  description: "Desarrollo de software a medida y plataforma de enseñanza tecnológica. En Stardust creamos páginas web modernas, sistemas escalables y cursos prácticos enfocados en habilidades reales.",
+  title: "Desarrollo de Software | Stardust",
+  description: "Desarrollo de software a medida para negocios que necesitan soluciones web modernas y escalables.",
   keywords:[
     "desarrollo web", "software", "web a medida", "desarrollo web", "agencia de desarrollo", "páginas web", "aplicaciones web",
     "soluciones digitales", "desarrollo frontend", "desarrollo backend", "Nextjs", "React", "Nodejs", "Javascript", "Fullstack",
-    "cursos de programación", "cursos", "aprender react", "aprender nextjs", "cursos de javascript", "formacion desarrolladores", "cursos practicos", "aprendizaje", "plataforma de cursos online", "contratar desarrollo", "agencia de dedarrollo web en México", "Desarrollo web profesional", "agencia de software en México", "desarrollo web CDMX", "desarrolladores web México"
+    "contratar desarrollo", "agencia de desarrollo web en México", "desarrollo web profesional", "agencia de software en México", "desarrollo web CDMX", "desarrolladores web México"
   ],
   openGraph: {
-    title: "Desarrollo y Academia | Stardust",
-    description: "Desarrollo de software a medida y plataforma de enseñanza tecnológica. En Stardust creamos páginas web modernas, sistemas escalables y cursos prácticos enfocados en habilidades reales.",
+    title: "Desarrollo de Software | Stardust",
+    description: "Desarrollo de software a medida para negocios que necesitan soluciones web modernas y escalables.",
     siteName: "Stardust",
     url: "https://stardustui.com/",
     images: [
       {
         url: "/services/services-hero.png",
-        width: 1200,
-        height: 630,
-      },
-      {
-        url: "/login/login-bg.png",
         width: 1200,
         height: 630,
       },
@@ -54,8 +47,6 @@ export default function Page() {
       <Benefits />
 
       <Delivery />
-      <CoursesIntroduction />
-      <Courses />
     </div>
   );
 }
