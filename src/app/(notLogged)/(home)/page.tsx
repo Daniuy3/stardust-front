@@ -35,7 +35,7 @@ export default function Page() {
 
   
   return (
-    <div className="w-full md:max-w-6xl mx-auto md:w-11/12">
+    <div className="w-full mx-auto md:w-11/12">
       <MainHero />
 
       <Presentation />

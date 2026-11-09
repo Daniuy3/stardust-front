@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+@import "@heroui/styles"; 
 
 @theme  {
     --color-secondary-50: #f5f7f9;
@@ -21,6 +21,6 @@ html {
 }
 
 body {
-    background-color: #F2F2F2;
+    background-color: #C4DCF4;
     font-size: small;
 }

@@ -1,47 +1,103 @@
 "use client"
 
-import Image from "next/image"
-import Link from "next/link"
 import { motion } from "motion/react"
+import { MainButton } from "@/components/MainButton"
+import { FaArrowRightLong, FaLinux } from "react-icons/fa6"
+import Link from "next/link"
+import { IoCodeSlashOutline, IoInfinite } from "react-icons/io5"
+import { CiServer } from "react-icons/ci"
+import { MdOutlineShield } from "react-icons/md"
 
 export const MainHero = () => {
-  return (
-    <div className="w-full flex py-15 flex-col lg:flex-row items-center justify-center gap-5 p-2">
-        <div className="lg:w-1/3">
-            <motion.h1 
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2, ease: "backOut" }}
-                className="text-4xl font-bold text-center lg:text-left"
-            >
-              Stardust 
-              <span className="text-purple-700 font-semibold block">
-                Desarrollo de Software y Academia
-              </span>
-            </motion.h1>
-            <p className="mt-4 text-gray-700 text-lg text-center lg:text-left">
-              Somos una empresa dedicada al desarrollo de software de alta calidad, con experiencia en diversas tecnologías y soluciones innovadoras. Además, fungimos como academia, formando a nuevos desarrolladores en diferentes ramas del desarrollo, desde frontend y backend hasta DevOps.
-            </p>
 
-            <div className="flex gap-5 mt-5 items-center justify-center lg:justify-start">
-              <Link
-                href="/contacto"
-                data-umami-event="Click en quiero un proyecto"
-                className="rounded-md bg-purple-600 px-6 py-3 font-semibold text-white transition hover:bg-purple-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-600"
-              >
-                Quiero un Proyecto
-              </Link>
-            </div>
+  const items = [
+    {
+      text: "Linux",
+      icon: <FaLinux />
+    },
+    {
+      text: "DevOps",
+      icon: <IoInfinite />
+    },
+    {
+      text: "Web",
+      icon: <IoCodeSlashOutline />
+    },
+    {
+      text: "Infraestructura",
+      icon: <CiServer />
+    },
+    {
+      text: "Ciberseguridad",
+      icon: <MdOutlineShield />
+    }
+  ]
+  return (
+    <div className="relative w-full flex justify-center items-center   h-screen">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5 }}
+          className="absolute md:top-15 top-40 left-1/2 w-full -translate-x-1/2 -z-10 whitespace-nowrap text-[18vw] xl:text-[280px] bg-linear-to-b from-[#DEEAFB] to-transparent bg-clip-text text-transparent font-semibold text-center leading-50"
+        >
+          STARDUST
+        </motion.h2>
+
+        <div
+          className="lg:max-w-3xl flex-col gap-5 flex"
+        >
+          <div>
+            <h1
+              className="text-4xl md:text-6xl font-bold text-center "
+            >
+              Tecnología real, explicada desde la práctica.
+            </h1>
+            <p
+              className="text-sm md:text-lg text-center  mt-2"
+            >
+              Artículos, proyectos y experimentos sobre Linux, servidores, desarrollo e infraestructura moderna.
+            </p>
+          </div>
+
+          <div
+            className="flex items-center justify-center gap-3"
+          >
+            <Link
+              href="/blog"
+            >
+              <MainButton
+                text="Explorar artículos"
+                icon={<FaArrowRightLong size={14} />}
+              />
+            </Link>
+
+            <button
+              className="bg-[#DEEAFB] rounded-full py-3 px-4 flex gap-2 items-center hover:bg-gray-200 transition-all cursor-pointer shadow-sm hover:shadow-lg"
+            >
+              Ver proyectos
+            </button>
+          </div>
+
+          <div
+            className="max-w-10/12 mx-auto flex flex-wrap  mt-10 items-center justify-center gap-3"
+          >
+            {
+              items.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1.2, delay: index * 0.2 }}
+                  className="flex items-center gap-2 bg-[#DEEAFB]/70 rounded-full py-2 px-4"
+                >
+                  {item.icon}
+                  <span>{item.text}</span>
+                </motion.div>
+              ))
+            }
+          </div>
         </div>
-        <div className="relative w-full h-64 md:h-96 md:w-2xl">
-          <Image 
-            src="/computer.png"
-            alt="Hero Image"
-            fill
-            quality={100}
-            className="mb-8 object-contain object-center h-full w-full"
-          />
-        </div>
+
     </div>
   )
 }

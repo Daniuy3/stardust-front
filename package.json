@@ -11,6 +11,8 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
+    "@heroui/react": "^3.2.7",
+    "@heroui/styles": "^3.2.7",
     "@mui/material": "^9.0.0",
     "formik": "^2.4.9",
     "motion": "^12.38.0",

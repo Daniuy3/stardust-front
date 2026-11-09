@@ -1,161 +1,141 @@
 "use client";
 
-import { Divider, IconButton, Menu, MenuItem } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { IoMenu } from "react-icons/io5";
+import { usePathname } from "next/navigation";
+import { FaArrowRightLong, FaBars } from "react-icons/fa6";
+import { motion, useMotionValueEvent, useScroll } from "motion/react"
+import { useEffect, useRef, useState } from "react";
+import { MainButton } from "./MainButton";
+import { Dropdown } from "@heroui/react";
 
 export const NavBar = () => {
 
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
+    const pathname = usePathname();
 
-  const pages = [
-    { name: "Inicio", href: "/#inicio" },
-    { name: "Servicios", href: "/servicios" },
-    { name: "Proyectos", href: "/#proyectos", disabled: true },
-    { name: "Contacto", href: "/contacto", main: true },
-  ]
+    const pages = [
+      { name: "Inicio", href: "/" },
+      { name: "Servicios", href: "/servicios" },
+      { name: "Proyectos", href: "/proyectos", disabled: true },
+      { name: "Contacto", href: "/contacto" },
+    ]
 
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+    const { scrollY } = useScroll()
+    const [headerOffset, setHeaderOffset] = useState(0)
+    const resetOffsetTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+    useEffect(() => {
+      return () => {
+        if (resetOffsetTimeout.current) {
+          clearTimeout(resetOffsetTimeout.current)
+        }
+      }
+    }, [])
+
+    useMotionValueEvent(scrollY, "change", (current) => {
+      const diff = current - (scrollY.getPrevious() ?? 0)
+      setHeaderOffset(diff > 0 ? -8 : 8)
+
+      if (resetOffsetTimeout.current) {
+        clearTimeout(resetOffsetTimeout.current)
+      }
+
+      resetOffsetTimeout.current = setTimeout(() => {
+        setHeaderOffset(0)
+        resetOffsetTimeout.current = null
+      }, 180)
+    })
+
 
   return (
-    <header className="sticky top-0 z-50 bg-white shadow">
-      <nav
-        aria-label="Navegación principal"
-        className="flex items-center justify-between px-5 md:px-10"
+    <motion.header
+      animate={{ y: headerOffset }}
+      transition={{ type: "spring", stiffness: 150, damping: 40, ease: "backInOut" }}
+      className="w-11/12 lg:w-full sticky top-5 py-2 px-5 bg-[#DEEAFB]/80 backdrop-blur-md rounded-full max-w-6xl mx-auto z-50 shadow-black/5 flex items-center justify-between shadow-lg"
+    >
+      
+      <div
+        className="flex items-center gap-10"
       >
-        <div className="aspect-video relative min-w-36">
+        <motion.div 
+          initial={{ opacity: 0}}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, ease: "backOut" }}
+        >
           <Image 
-            src="/stardust.svg"
+            src="/stardust.png"
             alt="Stardust Logo"
-            className="object-cover absolute "
-            fill
+            width={140}
+            height={50}
+            quality={100}
           />
-        </div>
+        </motion.div>
 
-        <div className="gap-5 items-center hidden md:flex">
-          {
-            pages.map((page) => (
-                page.disabled ? (
-                  <span
-                    key={page.name}
-                    aria-disabled="true"
-                    className="cursor-not-allowed text-gray-400"
-                  >
-                    {page.name}
-                  </span>
-                ) : page.main ? (
-                  <Link
-                    key={page.name}
-                    href={page.href}
-                    data-umami-event={`Click en ${page.name.toLowerCase()}`}
-                    className="rounded bg-purple-600 px-4 py-2 text-white transition-colors duration-300 hover:bg-purple-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-600"
-                  >
-                    {page.name}
-                  </Link>)
-                : (
-                  <Link
-                    key={page.name}
-                    href={page.href}
-                    className="text-gray-700 transition-colors hover:text-gray-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-600"
-                  >
-                    {page.name}
-                  </Link>
-                )
-            ))
-          }
-        </div>
-
-        <div className="md:hidden flex items-center">
-          <IconButton
-            data-umami-event={open ? "Click en cerrar menú de navegación" : "Click en abrir menú de navegación"}
-            onClick={handleClick}
-            size="large"
-            sx={{ ml: 2 }}
-            aria-label={open ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
-            aria-controls={open ? 'account-menu' : undefined}
-            aria-haspopup="true"
-            aria-expanded={open ? 'true' : undefined}
-          >
-            <IoMenu size={32} className="text-black"/>
-          </IconButton>
-
-          <Menu
-            anchorEl={anchorEl}
-            id="account-menu"
-            open={open}
-            onClose={handleClose}
-            onClick={handleClose}
-            slotProps={{
-              paper: {
-                elevation: 0,
-                sx: {
-                  overflow: 'visible',
-                  filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
-                  mt: 1.5,
-                  '& .MuiAvatar-root': {
-                    width: 32,
-                    height: 32,
-                    ml: -0.5,
-                    mr: 1,
-                  },
-                  '&::before': {
-                    content: '""',
-                    display: 'block',
-                    position: 'absolute',
-                    top: 0,
-                    right: 14,
-                    width: 10,
-                    height: 10,
-                    bgcolor: 'background.paper',
-                    transform: 'translateY(-50%) rotate(45deg)',
-                    zIndex: 0,
-                  },
-                },
-              },
-            }}
-            transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-            anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-          >
-              <MenuItem
-                component={Link}
-                href="/#inicio"
-                onClick={handleClose}
-                sx={{px:7, justifyContent: "center"}}
-              >
-                Inicio
-              </MenuItem>
-              
-              <MenuItem
-                component={Link}
-                href="/servicios"
-                onClick={handleClose}
-                sx={{px:7, justifyContent: "center"}}
-              >
-                Servicios
-              </MenuItem>
-              <MenuItem disabled sx={{px:7, justifyContent: "center"}}>
-                Proyectos
-              </MenuItem>
-              <Divider />
-              <MenuItem
-                component={Link}
-                href="/contacto"
-                onClick={handleClose}
-                sx={{px:7, justifyContent: "center"}}
-              >
-                Contacto
-              </MenuItem>
-            </Menu>
-        </div>
+        <motion.div 
+          className="w-px h-10 rounded-full bg-gray-300/50 min-h-0  block"
+          initial={{ scaleY: 0 }}
+          animate={{ scaleY: 1  }}
+          transition={{ duration: 1, ease: "backOut", delay: 0.3 }}
+        />
+      </div>
+      
+      <nav
+        className="md:flex gap-2 hidden"
+      >
+        {
+          pages.map((page, index) => (
+            <Link
+              key={index}
+              href={page.href}
+              className={`px-3 py-2 rounded-full transition-colors ${pathname === page.href ? "bg-blue-200/50 text-blue-900" : "hover:bg-blue-200/50 hover:text-blue-900 "}`}            
+            >
+              {page.name}
+            </Link>
+          ))
+        }
       </nav>
-    </header>
+
+      <Link
+        className="hidden md:block"
+        href="/#inicio"
+      >
+        <MainButton 
+          text="Explorar contenido"
+          icon={<FaArrowRightLong size={14} />}
+        />
+      </Link>
+
+      <Dropdown
+        className="md:hidden lg:hidden"
+      >
+          <Dropdown.Trigger aria-label="Menu" className="md:hidden lg:hidden">
+            <span aria-hidden="true" className=" block cursor-pointer p-3 rounded-full bg-blue-200/50 text-blue-900">
+              <FaBars size={20} />
+            </span>
+          </Dropdown.Trigger>
+          <Dropdown.Popover
+            className="rounded-lg shadow-lg bg-[#DEEAFB] backdrop-blur-md border "
+          >
+            <Dropdown.Menu>
+              {
+                pages.map((page, index) => (
+                  <Dropdown.Item
+                    className={`w-full transition-colors rounded-lg hover:bg-blue-200/50 ${pathname === page.href ? "bg-blue-200/50 text-blue-900" : "hover:text-blue-900 "}`}
+                    key={index}
+                  >
+                    <Link
+                      href={page.href}
+                      className={`px-3 py-2 w-full rounded-sm transition-colors`}            
+                    >
+                      {page.name}
+                    </Link>
+                  </Dropdown.Item>
+                ))
+              }
+            </Dropdown.Menu>
+          </Dropdown.Popover>
+        </Dropdown>
+    </motion.header>
+     
   )
 }

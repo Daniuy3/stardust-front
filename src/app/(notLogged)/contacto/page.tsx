@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main className="relative isolate overflow-hidden bg-[#fbfafc]">
+    <main className="relative isolate overflow-hidden bg-[#AACBEA]">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_52%_40%,rgba(168,85,247,0.09),transparent_58%)]"
