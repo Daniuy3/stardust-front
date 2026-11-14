@@ -1,12 +1,14 @@
 "use client"
 
 import { motion } from "motion/react"
-import { MainButton } from "@/components/MainButton"
+import { MainButton } from "@/components/buttons/MainButton"
 import { FaArrowRightLong, FaLinux } from "react-icons/fa6"
 import Link from "next/link"
 import { IoCodeSlashOutline, IoInfinite } from "react-icons/io5"
 import { CiServer } from "react-icons/ci"
 import { MdOutlineShield } from "react-icons/md"
+import { Button } from "@heroui/react"
+import { SecondaryButton } from "@/components/buttons/SecondaryButton"
 
 export const MainHero = () => {
 
@@ -38,7 +40,7 @@ export const MainHero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5 }}
-          className="absolute md:top-15 top-40 left-1/2 w-full -translate-x-1/2 -z-10 whitespace-nowrap text-[18vw] xl:text-[280px] bg-linear-to-b from-[#DEEAFB] to-transparent bg-clip-text text-transparent font-semibold text-center leading-50"
+          className="absolute md:top-15 top-40 left-1/2 w-full -translate-x-1/2 -z-10 whitespace-nowrap text-[18vw] xl:text-[280px] bg-linear-to-b from-[#DEEAFB] to-transparent bg-clip-text text-transparent font-semibold text-center leading-none md:leading-50"
         >
           STARDUST
         </motion.h2>
@@ -71,11 +73,10 @@ export const MainHero = () => {
               />
             </Link>
 
-            <button
-              className="bg-[#DEEAFB] rounded-full py-3 px-4 flex gap-2 items-center hover:bg-gray-200 transition-all cursor-pointer shadow-sm hover:shadow-lg"
-            >
-              Ver proyectos
-            </button>
+            <SecondaryButton 
+              text="Explorar proyectos"
+              icon={<FaArrowRightLong size={14} />}
+            />
           </div>
 
           <div

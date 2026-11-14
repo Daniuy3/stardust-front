@@ -1,11 +1,10 @@
 
 import { MainHero } from "./components/MainHero";
 import { Metadata } from "next";
-import { Benefits } from "./components/Benefits";
-import { Delivery } from "./components/Delivery";
 import { Presentation } from "./components/Presentation";
-import { StackedBarChart } from "./components/StackedBarChart";
-import { Stages } from "./components/Stages";
+import { SelectedProject } from "./components/SelectedProject";
+import { OtherProjects } from "./components/OtherProjects";
+import { BlogSection } from "./components/BlogSection";
 
 export const metadata : Metadata = {
   title: "Desarrollo de Software | Stardust",
@@ -35,18 +34,20 @@ export default function Page() {
 
   
   return (
-    <div className="w-full mx-auto md:w-11/12">
-      <MainHero />
+    <>
+      <div className="w-full mx-auto md:w-11/12">
+        <MainHero />
 
-      <Presentation />
+        <Presentation />
 
-      <StackedBarChart />
+        <SelectedProject />
+      </div>
 
-      <Stages />
-
-      <Benefits />
-
-      <Delivery />
-    </div>
+      <OtherProjects />
+      
+      <div className="w-full mx-auto md:w-11/12">
+        <BlogSection />
+      </div>
+    </>
   );
 }

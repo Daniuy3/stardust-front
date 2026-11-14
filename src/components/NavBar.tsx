@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { FaArrowRightLong, FaBars } from "react-icons/fa6";
 import { motion, useMotionValueEvent, useScroll } from "motion/react"
 import { useEffect, useRef, useState } from "react";
-import { MainButton } from "./MainButton";
+import { MainButton } from "./buttons/MainButton";
 import { Dropdown } from "@heroui/react";
 
 export const NavBar = () => {
