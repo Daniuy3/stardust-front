@@ -1,4 +1,3 @@
-import Link from "next/link"
 
 const linkClassName = 'rounded-sm transition-colors hover:text-blue-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-300'
 

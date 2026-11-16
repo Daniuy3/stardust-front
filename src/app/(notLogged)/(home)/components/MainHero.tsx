@@ -7,7 +7,6 @@ import Link from "next/link"
 import { IoCodeSlashOutline, IoInfinite } from "react-icons/io5"
 import { CiServer } from "react-icons/ci"
 import { MdOutlineShield } from "react-icons/md"
-import { Button } from "@heroui/react"
 import { SecondaryButton } from "@/components/buttons/SecondaryButton"
 
 export const MainHero = () => {
