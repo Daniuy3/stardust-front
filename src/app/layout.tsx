@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { StoredSnackBar } from "@/components/SnackBar";
 import Script from "next/script";
 
 export const metadata: Metadata = {
@@ -27,7 +26,6 @@ export default function RootLayout({
 
       <body
       >
-        <StoredSnackBar />
         
         {children}
 

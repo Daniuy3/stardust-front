@@ -1,72 +1,148 @@
 "use client"
 
-import React from 'react'
-import { AiFillTrophy } from 'react-icons/ai'
-import { BsAwardFill } from 'react-icons/bs'
-import { FaExchangeAlt } from 'react-icons/fa'
-import { IoPhonePortraitOutline } from 'react-icons/io5'
-import { motion } from 'motion/react'
+import { MainButton } from "@/components/buttons/MainButton"
+import { SecondaryButton } from "@/components/buttons/SecondaryButton"
+import Image from "next/image"
+import { FaArrowRightLong } from "react-icons/fa6"
+import { motion } from "motion/react";
+
 
 export const Presentation = () => {
 
-    const items : {
-        title: string
-        content : string
-        icon: React.ReactNode
-    }[] = [
-        {
-            title: "Resultados visibles",
-            content: "Entrega de valor semanalmente.",
-            icon: <AiFillTrophy />
-        },
-        {
-            title: "Comunicación fluida",
-            content: "Actualizaciones regulares y acceso directo al equipo.",
-            icon: <IoPhonePortraitOutline />
-        },
-        {
-            title: "Flexibilidad total",
-            content: "Adaptamos el proyecto a tus necesidades y cambios de rumbo.",
-            icon: <FaExchangeAlt />
-        },
-        {
-            title: "Calidad garantizada",
-            content: "Pruebas rigurosas y atención al detalle en cada entrega.",
-            icon: <BsAwardFill />
-        }
-    ]
+
+
   return (
-    <div className="py-10 flex flex-col md:flex-row p-2 gap-10 items-center">
-        <div className="md:w-1/2 space-y-5">
-            <h2 className="text-3xl font-bold text-center md:text-left">
-            Soluciones digitales que
-            <span className="text-purple-900 block">
-                {" "}
-                Realmente impulsan tu negocio
-            </span>
-            </h2>
-            <p className="text-lg text-center md:text-left">
-            Creamos productos funcionales, escalables y enfocados en resultados, combinando tecnología, diseño y estrategia. Nuestro objetivo no es solo que tu proyecto se vea bien, sino que funcione, crezca y aporte valor desde el primer día.
-            </p>
+    <div
+        className="relative h-screen flex flex-col items-center justify-center bg-[radial-gradient(circle_at_center,#DEEAFB_0%,transparent_45%)]"
+    >
+
+        <motion.div
+            initial={{ opacity: 0, scale: 0 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ ease: "backOut", duration: 0.8 }}
+            viewport={{
+                once: true,
+                amount: 0.5,
+                margin: "0px 0px -100px 0px",
+            }}
+            className="left-5 top-20 -z-10 absolute aspect-video w-48 lg:w-120"
+        >
+            <Image 
+                src="/presentation/forms.png"
+                alt="stardust"
+                fill
+                className="object-cover drop-shadow-xl -rotate-12"
+            />
+        </motion.div>
+
+        <motion.div
+            initial={{ opacity: 0, scale: 0 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ ease: "backOut", duration: 0.8 }}
+            viewport={{
+                once: true,
+                amount: 0.5,
+                margin: "0px 0px -100px 0px",
+            }}
+            className="right-5 top-20 -z-10 absolute aspect-video w-48 lg:w-120"
+        >
+            <Image 
+                src="/presentation/casa-laura.png"
+                alt="stardust"
+                fill
+                className="object-cover drop-shadow-xl rotate-12"
+            />
+        </motion.div>
+
+        <motion.div
+            initial={{ opacity: 0, scale: 0 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ ease: "backOut", duration: 0.8 }}
+            viewport={{
+                once: true,
+                amount: 0.5,
+                margin: "0px 0px -50px 0px",
+            }}
+            className="right-5 bottom-20 -z-10 absolute aspect-video w-48 lg:w-120"
+        >
+            <Image 
+                src="/presentation/umami.png"
+                alt="stardust"
+                fill
+                className="object-cover drop-shadow-xl -rotate-12"
+            />
+        </motion.div>
+
+
+        <motion.div
+            initial={{ opacity: 0, scale: 0 }}
+            whileInView={{ opacity: 1, scale: 1.1 }}
+            transition={{ ease: "backOut", duration: 0.8 }}
+            viewport={{
+                once: true,
+                amount: 0.5,
+                margin: "0px 0px -50px 0px",
+            }}
+            className="left-5 bottom-20 -z-10 absolute aspect-video w-48 lg:w-120"
+        >
+            <Image 
+                src="/presentation/cec.png"
+                alt="stardust"
+                fill
+                className="object-cover drop-shadow-xl rotate-12"
+            />
+        </motion.div>
+
+
+        <div
+                className="w-11/12 max-w-6xl mx-auto text-center flex flex-col justify-center items-center gap-5"
+        >
+                <motion.div
+                    initial={{ y: 20, opacity: 0}}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.3, duration: 0.7, ease: "backOut"}}
+                    viewport={{
+                        once: true,
+                        amount: 0.5,
+                        margin: "0px 0px -100px 0px",
+                    }}
+                    className="size-20 relative rounded-sm bg-[#DEEAFB] shadow-xl shadow-gray-400/30"
+                >
+                    <Image 
+                        src="/favicon.png"
+                        alt="stardust"
+                        fill
+                        className="object-cover"
+                    />
+                </motion.div>
+                
+                <div>
+                    <h2
+                        className="text-3xl lg:text-6xl font-bold"
+                    >
+                        No solo explicamos tecnología, tambien <span className="text-blue-700">la construimos.</span>
+                    </h2>
+                    <p
+                        className="text-lg"
+                    >
+                        Diseñamos y desarrollamos aplicaciones web, herramientas y soluciones digitales para resolver tus problemas.
+                    </p>
+                </div>
+
+                <div
+                    className="flex gap-3 justify-center my-5"
+                >
+                    <MainButton 
+                        text="Conocer servicios"
+                        icon={<FaArrowRightLong size={14} />}
+                    />
+                    <SecondaryButton 
+                        text="Explorar proyectos"
+                        icon={<FaArrowRightLong size={14} />}
+                    />
+                </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-5 mt-10">
-            {items.map((item, index) => (
-                <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5,  ease: "backOut", delay: index * 0.2,  }}
-                    key={index} className="flex flex-col items-center justify-center gap-3 "
-                >
-                    <div className="text-4xl text-center">{item.icon}</div>
-                    <div>
-                        <h3 className="text-xl font-bold text-center">{item.title}</h3>
-                        <p className="text-center">{item.content}</p>
-                    </div>
-                </motion.div>
-            ))}
-        </div>
     </div>
   )
 }
