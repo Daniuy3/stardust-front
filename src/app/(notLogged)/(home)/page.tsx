@@ -5,6 +5,7 @@ import { Presentation } from "./components/Presentation";
 import { SelectedProject } from "./components/SelectedProject";
 import { OtherProjects } from "./components/OtherProjects";
 import { BlogSection } from "./components/BlogSection";
+import { Contact } from "./components/Contact";
 
 export const metadata : Metadata = {
   title: "Desarrollo de Software | Stardust",
@@ -48,6 +49,8 @@ export default function Page() {
       <div className="w-full mx-auto md:w-11/12">
         <BlogSection />
       </div>
+
+      <Contact />
     </>
   );
 }

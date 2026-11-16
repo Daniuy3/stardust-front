@@ -15,9 +15,9 @@ export const NavBar = () => {
 
     const pages = [
       { name: "Inicio", href: "/" },
-      { name: "Servicios", href: "/servicios" },
+      { name: "Servicios", href: "/servicios", disabled: true },
       { name: "Proyectos", href: "/proyectos", disabled: true },
-      { name: "Contacto", href: "/contacto" },
+      { name: "Contacto", href: "/contacto", disabled: true },
     ]
 
     const { scrollY } = useScroll()
@@ -84,13 +84,23 @@ export const NavBar = () => {
       >
         {
           pages.map((page, index) => (
-            <Link
-              key={index}
-              href={page.href}
-              className={`px-3 py-2 rounded-full transition-colors ${pathname === page.href ? "bg-blue-200/50 text-blue-900" : "hover:bg-blue-200/50 hover:text-blue-900 "}`}            
-            >
-              {page.name}
-            </Link>
+            page.disabled ? (
+              <span
+                key={index}
+                aria-disabled="true"
+                className="px-3 py-2 rounded-full cursor-not-allowed text-gray-500"
+              >
+                {page.name}
+              </span>
+            ) : (
+              <Link
+                key={index}
+                href={page.href}
+                className={`px-3 py-2 rounded-full transition-colors ${pathname === page.href ? "bg-blue-200/50 text-blue-900" : "hover:bg-blue-200/50 hover:text-blue-900 "}`}
+              >
+                {page.name}
+              </Link>
+            )
           ))
         }
       </nav>
