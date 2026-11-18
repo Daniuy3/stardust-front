@@ -24,16 +24,16 @@ export const Contact = () => {
         </div>
 
         <div
-            className='flex justify-between flex-col md:flex-row py-10 pb-20 border-b border-white'
+            className='flex justify-between gap-8 flex-col lg:flex-row py-10 pb-20 border-b border-white'
         >
-            <div className='lg:w-1/2'>
+            <div className='min-w-0 lg:w-1/2'>
                 <h2
-                    className='text-7xl lg:text-[150px] lg:leading-35'
+                    className='text-[clamp(2rem,8vw,9.375rem)] leading-tight'
                 >
                     Trabajemos juntos
                 </h2>
             </div>
-            <div className='lg:max-w-1/3 flex flex-col justify-between'>
+            <div className='min-w-0 lg:max-w-1/3 flex flex-col justify-between'>
                 <p
                     className='mt-5 lg:mt-0 text-xl lg:text-4xl'
                 >
@@ -72,7 +72,7 @@ export const Contact = () => {
                 </ul>
             </div>
 
-            <div className='lg:w-1/3 lg:border-r border-b lg:border-b-0 border-white flex lg:flex-col justify-center items-center gap-5 text-lg py-10 lg:py-0'>
+            <div className='lg:w-1/3 lg:border-r border-b lg:border-b-0 border-white flex flex-col md:flex-row lg:flex-col justify-center items-center gap-5 text-lg py-10 lg:py-0'>
                 <p className='w-56 flex items-center justify-between'>
                     <span className='text-blue-500'>
                         <IoLocationOutline size={24}/>

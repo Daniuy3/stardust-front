@@ -14,7 +14,7 @@ export const OtherProjects = () => {
             className='flex gap-5 items-center'
         >
             <h2
-                className='text-5xl lg:w-fit lg:whitespace-nowrap font-bold'
+                className='min-w-0 text-4xl sm:text-5xl lg:w-fit font-bold'
             >
                 PROYECTOS DESTACADOS
             </h2>
@@ -24,7 +24,7 @@ export const OtherProjects = () => {
             />
 
             <div
-                className='flex gap-3 items-center'
+                className='hidden mdflex gap-3 items-center'
             >
                 <div 
                     className='size-5 bg-blue-700 rounded-full'
@@ -41,10 +41,10 @@ export const OtherProjects = () => {
         </div>
 
         <div
-            className='mt-10 grid xl:grid-cols-4 gap-5 xl:gap-0'
+            className='mt-10 grid grid-cols-1 xl:grid-cols-4 gap-5 xl:gap-0'
         >
             <div
-                className='border-b xl:border-r border-gray-300 flex flex-col gap-5 px-5'
+                className='border-b xl:border-r border-gray-300 flex flex-col gap-5 xl:px-5'
             >
                 <div
                    className='relative w-full md:min-h-90 xl:min-h-60 min-h-60' 
@@ -73,7 +73,7 @@ export const OtherProjects = () => {
                         SITIO WEB
                     </p>
                     <h3
-                        className='text-5xl font-semibold'
+                        className='text-3xl md:text-5xl font-semibold'
                     >
                         Casa Laura
                     </h3>
@@ -94,7 +94,7 @@ export const OtherProjects = () => {
             </div>
 
             <div
-                className='col-span-2 flex flex-col gap-5 px-5'
+                className='xl:col-span-2 flex flex-col gap-5 xl:px-5'
             >
                 <div
                     className='relative w-full min-h-60 md:min-h-90 lg:min-h-110 '
@@ -122,7 +122,7 @@ export const OtherProjects = () => {
                         {" "}
                         APLICACIÓN
                     </p>
-                    <h3 className='text-5xl font-bold'>
+                    <h3 className='text-3xl md:text-5xl font-bold'>
                         Monitor Condesa
                     </h3>
                     <p
@@ -138,7 +138,7 @@ export const OtherProjects = () => {
             </div>
 
             <div
-                className='xl:border-l  border-gray-300 flex flex-col gap-5 px-5'
+                className='xl:border-l  border-gray-300 flex flex-col gap-5 xl:px-5'
             >
                 <div
                    className='relative w-full md:min-h-90 lg:min-h-60 min-h-60' 
@@ -167,7 +167,7 @@ export const OtherProjects = () => {
                         SITIO WEB
                     </p>
                     <h3
-                        className='text-5xl font-semibold'
+                        className='text-3xl md:text-5xl  font-semibold'
                     >
                         Clínica Especializada Condesa
                     </h3>

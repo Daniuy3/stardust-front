@@ -13,7 +13,7 @@ export const Presentation = () => {
 
   return (
     <div
-        className="relative h-screen flex flex-col items-center justify-center bg-[radial-gradient(circle_at_center,#DEEAFB_0%,transparent_45%)]"
+        className="relative min-h-screen py-16 flex flex-col items-center justify-center bg-[radial-gradient(circle_at_center,#DEEAFB_0%,transparent_45%)]"
     >
 
         <motion.div
@@ -130,7 +130,7 @@ export const Presentation = () => {
                 </div>
 
                 <div
-                    className="flex gap-3 justify-center my-5"
+                    className="flex w-full flex-wrap gap-3 justify-center my-5"
                 >
                     <MainButton 
                         text="Conocer servicios"

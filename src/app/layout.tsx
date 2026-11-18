@@ -3,8 +3,22 @@ import "./globals.css";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Servicios Web | Stardust",
-  description: "Empresa de servicios web y desarrollo de software a medida. Ofrecemos soluciones innovadoras para impulsar tu negocio en línea.",
+  metadataBase: new URL("https://stardustui.com"),
+
+  title: {
+    default: "Stardust | Tecnología desde la práctica",
+    template: "%s | Stardust",
+  },
+
+  description:
+    "Explora artículos, proyectos y experimentos sobre Linux, desarrollo de software, servidores e infraestructura. Tecnología explicada desde la práctica.",
+
+  openGraph: {
+    type: "website",
+    locale: "es_MX",
+    siteName: "Stardust",
+    url: "https://stardustui.com",
+  },
 };
 
 export default function RootLayout({
