@@ -133,12 +133,23 @@ export const NavBar = () => {
                     className={`w-full transition-colors rounded-lg hover:bg-blue-200/50 ${pathname === page.href ? "bg-blue-200/50 text-blue-900" : "hover:text-blue-900 "}`}
                     key={index}
                   >
-                    <Link
-                      href={page.href}
-                      className={`px-3 py-2 w-full rounded-sm transition-colors`}            
-                    >
-                      {page.name}
-                    </Link>
+                    {
+                      page.disabled? (
+                        <span
+                          aria-disabled
+                          className="block px-3 py-2 text-gray-400 cursor-not-allowed"
+                        >
+                          { page.name }
+                        </span>
+                      ): (
+                        <Link
+                          href={page.href}
+                          className={`px-3 py-2 w-full rounded-sm transition-colors`}            
+                        >
+                          { page.name }
+                        </Link>
+                      )
+                    }
                   </Dropdown.Item>
                 ))
               }

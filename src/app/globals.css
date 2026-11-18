@@ -23,4 +23,5 @@ html {
 body {
     background-color: #C4DCF4;
     font-size: small;
+    overflow-wrap: anywhere;
 }

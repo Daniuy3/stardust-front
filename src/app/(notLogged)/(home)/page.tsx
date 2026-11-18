@@ -7,29 +7,36 @@ import { OtherProjects } from "./components/OtherProjects";
 import { BlogSection } from "./components/BlogSection";
 import { Contact } from "./components/Contact";
 
-export const metadata : Metadata = {
-  title: "Desarrollo de Software | Stardust",
-  description: "Desarrollo de software a medida para negocios que necesitan soluciones web modernas y escalables.",
-  keywords:[
-    "desarrollo web", "software", "web a medida", "desarrollo web", "agencia de desarrollo", "páginas web", "aplicaciones web",
-    "soluciones digitales", "desarrollo frontend", "desarrollo backend", "Nextjs", "React", "Nodejs", "Javascript", "Fullstack",
-    "contratar desarrollo", "agencia de desarrollo web en México", "desarrollo web profesional", "agencia de software en México", "desarrollo web CDMX", "desarrolladores web México"
-  ],
+export const metadata: Metadata = {
+  title: "Tecnología real, explicada desde la práctica",
+
+  description:
+    "Artículos, proyectos reales y experimentos sobre Linux, servidores, desarrollo web e infraestructura, explicados desde la práctica.",
+
+  alternates: {
+    canonical: "/",
+  },
+
   openGraph: {
-    title: "Desarrollo de Software | Stardust",
-    description: "Desarrollo de software a medida para negocios que necesitan soluciones web modernas y escalables.",
-    siteName: "Stardust",
-    url: "https://stardustui.com/",
+    title: "Stardust | Tecnología desde la práctica",
+    description:
+      "Explora artículos, proyectos y experimentos sobre Linux, desarrollo de software e infraestructura.",
+    url: "/",
     images: [
       {
-        url: "/services/services-hero.png",
+        url: "/opengraph-image.png",
         width: 1200,
         height: 630,
+        alt: "Stardust | Tecnología desde la práctica",
       },
-    ]
+    ],
   },
-  metadataBase: new URL("https://stardustui.com/")
-}
+
+  twitter: {
+    card: "summary_large_image",
+    images: ["/opengraph-image.png"],
+  },
+};
 
 export default function Page() {
 

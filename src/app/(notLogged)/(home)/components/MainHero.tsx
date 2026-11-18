@@ -34,18 +34,18 @@ export const MainHero = () => {
     }
   ]
   return (
-    <div className="relative w-full flex justify-center items-center   h-screen">
+    <div className="relative w-full flex justify-center items-center min-h-screen px-5 py-16">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5 }}
-          className="absolute md:top-15 top-40 left-1/2 w-full -translate-x-1/2 -z-10 whitespace-nowrap text-[18vw] xl:text-[280px] bg-linear-to-b from-[#DEEAFB] to-transparent bg-clip-text text-transparent font-semibold text-center leading-none md:leading-50"
+          className="absolute md:top-15 top-40 left-1/2 w-full -translate-x-1/2 -z-10 whitespace-nowrap text-[16vw] bg-linear-to-b from-[#DEEAFB] to-transparent bg-clip-text text-transparent font-semibold text-center leading-none md:leading-50"
         >
           STARDUST
         </motion.h2>
 
         <div
-          className="lg:max-w-3xl flex-col gap-5 flex"
+          className="w-full min-w-0 lg:max-w-3xl flex-col gap-5 flex"
         >
           <div>
             <h1
@@ -61,7 +61,7 @@ export const MainHero = () => {
           </div>
 
           <div
-            className="flex items-center justify-center gap-3"
+            className="flex flex-wrap items-center justify-center gap-3"
           >
             <Link
               href="/blog"
